@@ -4,13 +4,11 @@ import WarehouseAdd from './components/WarehouseAdd/WarehouseAdd';
 import WarehouseDelete from './components/WarehouseDelete/WarehouseDelete';
 import WarehouseEdit from './components/WarehouseEdit/WarehouseEdit';
 import WarehouseItem from './components/WarehouseItem/WarehouseItem';
-import WarehouseList from './components/WarehouseList/WarehouseList';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import InventoryAdd from './components/InventoryAdd/InventoryAdd';
 import InventoryDelete from './components/InventoryDelete/InventoryDelete';
 import InventoryItem from './components/InventoryItem/InventoryItem';
 import InventoryEdit from './components/InventoryEdit/InventoryEdit';
-import InventoryList from './components/InventoryList/InventoryList';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import './index.scss'
 
