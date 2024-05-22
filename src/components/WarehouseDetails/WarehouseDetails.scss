@@ -1,0 +1,25 @@
+.warehouse-details {
+
+  &__header {
+    display: flex;
+  }
+  // &__icon {
+
+  // }
+
+  &__title {
+    color: black;
+  }
+
+  &__address-container {
+    display: flex;
+  }
+
+  &__contact {
+    list-style-type: none;
+  }
+
+  &__contact-header {
+    text-transform: uppercase;
+  }
+}
