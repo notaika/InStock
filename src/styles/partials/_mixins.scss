@@ -12,14 +12,14 @@
     }
   }
 
-  @mixin tablet-button{
-    height:38px; 
-    padding: 0 16px; 
-    border-radius: 20px;
+  @mixin tablet-button {
+    height: 2.375rem; 
+    padding: 0 1rem; 
+    border-radius: 1.25rem;
   }
 
-  @mixin mobile-button{
-    height:36px; 
-    padding: 0 16px; 
-    border-radius: 20px;
+  @mixin mobile-button {
+    height: 2.25rem; 
+    padding: 0 1rem; 
+    border-radius: 1.25rem;
   }
