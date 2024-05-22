@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint){
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+
+  @mixin tablet-button{
+    height:38px; 
+    padding: 0 16px; 
+    border-radius: 20px;
+  }
+
+  @mixin mobile-button{
+    height:36px; 
+    padding: 0 16px; 
+    border-radius: 20px;
+  }
