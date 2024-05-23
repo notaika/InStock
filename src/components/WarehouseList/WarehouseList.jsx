@@ -49,7 +49,7 @@ export default function WarehouseList ( { warehouse } ) {
       <section className="warehouse__list warehouse__list--tablet">
         <div className="warehouse__list-content">
           <div className="warehouse__list-item">
-            <Link to="/:id" className="warehouse__list-nav warehouse__info">
+            <Link to={`/warehouse/${warehouse.id}`} className="warehouse__list-nav warehouse__info">
               {warehouse.warehouse_name}{" "}
               <img
                 src={chevronRight}
