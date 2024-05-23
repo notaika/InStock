@@ -12,22 +12,23 @@
     font-family: typography.$font-family, sans-serif;
 }
 h1 {
-    font-size: 1.75rem;
-    line-height: 2.25rem;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
 }
 h2 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 20px;
+    line-height: 28px;
 }
 h3 {
-    font-size: 0.8125rem;
-    line-height: 1.25rem;
+    font-size: 13px;
+    line-height: 20px;
 }
 h4 {
-    font-size: 0.6875rem;
-    line-height: 1rem;
+    font-size: 11px;
+    line-height: 16px;
 }
 p {
-    font-size: 0.9375rem;
-    line-height: 1.625rem;
+    font-size: 13px;
+    line-height: 20px;
 }
