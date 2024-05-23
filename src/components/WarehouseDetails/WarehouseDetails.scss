@@ -1,50 +1,128 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
 .warehouse-details {
   margin-left: 1rem;
   margin-right: 1rem;
-  border: 1px solid black;
+  border: 1px solid variables.$secondary-cloud;
+  color: variables.$primary-black;
+  margin-top: 5rem;
+  outline: none;
 
   &__header {
     display: flex;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1.5rem 1rem;
+    justify-content: space-between;
   }
-  // &__icon {
 
-  // }
-
-  &__title {
-    color: black;
+  &__title-wrapper {
+    display: flex;
   }
 
   &__edit-button {
     display: flex;
-  }
-
-  &__button-icon {
+    align-items: center;
+    justify-content: center;
+    background-color: variables.$primary-indigo;
+    border-radius: 50%;
+    border: 0;
     width: 36px;
     height: 36px;
+
+    @include mixins.tablet {
+      border-radius: 20px;
+      padding-right: 16px;
+      padding-left: 16px;
+      height: 38px;
+      width: 80px;
+    }
+
+    &:hover {
+      background-color: variables.$primary-black;
+
+    }
   }
 
   &__button-text {
     display: none;
+    padding-left: 4px;
+    
+
+    @include mixins.tablet {
+      display: flex;
+      color: variables.$primary-white;
+      font-size: 14px;
+      line-height: 22px
+    }
   }
 
   &__divider {
     height: 1px;
-    background-color: black;;
+    background-color: variables.$secondary-cloud;
+  }
+
+  &__address {
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.tablet {
+      flex-direction: row;
+    }
   }
 
   &__address-container {
+    @include mixins.tablet {
+      padding-right: 5rem;
+    }
+  }
+
+  &__address-list {
+    &--tablet {
+      display: none;
+    }
+
+    @include mixins.tablet {
+      &--mobile {
+        display: none;
+      }
+      &--tablet {
+        display: contents;
+        list-style-type: none;
+      }
+    }
+  }
+
+  &__contact-container {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding-top: 2rem;
+
+    @include mixins.tablet {
+      padding-top: 0;
+      align-items: space-between;
+      border-left: 1px solid mixins.$secondary-cloud;
+      padding-left: 1rem;
+    }
   }
 
   &__contact {
     list-style-type: none;
+
+    @include mixins.tablet {
+      padding-left: 2rem;
+    }
   }
 
-  &__contact-header {
+  &__contact-header,
+  &__address-header {
+    font-size: 0.6888rem;
+    height: 1rem;
     text-transform: uppercase;
+    color: variables.$secondary-slate;
+
+    @include mixins.tablet {
+      font-size: 0.875rem;
+    }
   }
 }
