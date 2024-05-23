@@ -1,0 +1,82 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #232940;
+    width:100%;
+    height:12.50em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+&__logo {
+    margin-top:1.5em;
+    margin-bottom: 0.63em;  
+} 
+
+&__logo-size {
+    width: 7.50em;
+}
+
+&__list {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+&__menu{
+    color:white;
+    font-size: 0.9em;
+    margin: 1.5em 0.5em 0 0.94em;
+    padding: 0.5em 2.5em;
+    font-family:$font-family;
+    font-weight: 400;
+
+    &:hover {
+        background-color: #13182C;
+        border-radius: 312em;
+    }
+  }
+}
+
+
+@include tablet{
+    .header {
+        height:11.63em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        &__logo {
+            margin-bottom:7em;
+            margin-left: 2em;
+        } 
+
+        &__menu{
+            margin-bottom:6.9em;
+            margin-left: 2.5em;
+            margin-right:2em;
+        }
+    }
+}
+
+@include desktop{
+    .header {
+        
+        &__logo {
+            margin-left: 5.5em;
+        }  
+
+        &__list{
+            margin-right:5.5em;
+        }
+    }
+}
