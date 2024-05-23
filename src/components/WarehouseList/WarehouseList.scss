@@ -1,0 +1,142 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+*, p {
+    font-size: 13px;
+
+    @include mixins.tablet {
+        font-size: 14px;
+    }
+}
+
+.warehouse {
+    &__list {
+        &--mobile {
+            @include mixins.tablet {
+                display: none;
+            }
+        }
+        &-content {
+            border-bottom: 1px solid variables.$secondary-cloud;
+        }
+        &--tablet {
+            display: none;
+
+            @include mixins.tablet {
+                display: contents;
+            }
+        }
+        &-item {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid variables.$secondary-cloud;
+
+            @include mixins.tablet {
+                flex-direction: row;
+                margin: 0 0 16px 0;
+                border-bottom: none;
+            }
+        }
+        &-delete, &-edit {
+            width: 24px;
+            height: 24px;
+            margin-right: 16px;
+        }
+        &-container {
+            display: flex;
+            margin: 16px 0px 16px 0px;
+        }
+        &--left, &--right {
+            display: flex;
+            flex-direction: column;
+            width: 55%;
+        }
+        &--left {
+            margin-left: 24px;
+            width: 45%;
+        }
+        &-title {
+            color: variables.$secondary-slate;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 16px 0 4px 0;
+
+            @include mixins.tablet {
+                margin: 10px 0;
+                width: 20%;
+                font-size: 12px;
+                margin-left: 40px;
+                white-space: nowrap;
+
+                &:last-child {
+                    @include mixins.tablet {
+                        text-align: center;
+                        padding-right: 40px;
+                    }
+                    @include mixins.desktop {
+                        padding: 0;
+                    }
+                }
+            }
+
+            &-logo {
+                position: relative;
+                top: 6px;
+                right: -5px;
+            }
+        }
+        &-nav {
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0;
+            position: relative;
+            bottom: 10px;
+
+        }
+        &-functions {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 24px 24px 24px;
+
+            @include mixins.tablet {
+                margin: 0;
+                justify-content: center;
+            }
+            @include mixins.desktop {
+                position: relative;
+                left: 2%;
+            }
+        }
+        &-edit {
+            @include mixins.tablet {
+                margin-right: 40px;
+            }
+        }
+        &-titles {
+            display: flex;
+            background-color: variables.$bg-lightgrey;
+            margin-bottom: 32px;
+        }
+    }
+    &__info {
+        width: 20%;
+        text-align: left;
+        margin-left: 40px;
+    }
+    &__contact-information, &__address {
+        @include mixins.tablet {
+            position: relative;
+            bottom: 8px;
+        }
+    }
+    &__address {
+        width: 80%;
+
+        @include mixins.tablet {
+            width: 20%;
+        }
+        @include mixins.desktop {
+            bottom: 0;
+        }
+    }
+}
