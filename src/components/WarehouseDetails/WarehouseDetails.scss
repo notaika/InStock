@@ -1,7 +1,12 @@
 .warehouse-details {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid black;
 
   &__header {
     display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   // &__icon {
 
@@ -11,8 +16,28 @@
     color: black;
   }
 
+  &__edit-button {
+    display: flex;
+  }
+
+  &__button-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  &__button-text {
+    display: none;
+  }
+
+  &__divider {
+    height: 1px;
+    background-color: black;;
+  }
+
   &__address-container {
     display: flex;
+    justify-content: space-between;
+    padding: 1rem;
   }
 
   &__contact {

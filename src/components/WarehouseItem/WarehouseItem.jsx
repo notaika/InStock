@@ -1,10 +1,14 @@
 import React from 'react'
+import WarehouseDetails from '../WarehouseDetails/WarehouseDetails'
+import { useParams } from "react-router-dom";
 
 export default function WarehouseItem() {
+  const { id } = useParams();
+  console.log(id);
+
   return (
     <div>
-      <h1>Warehouse - Item</h1>
-      <p>Welcome to the warehouse (item) page!</p>
+      <WarehouseDetails id={id}/>
     </div>
   )
 }
