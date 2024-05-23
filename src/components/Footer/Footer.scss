@@ -1,5 +1,15 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
 .footer {
-  color: #BDC5D5;
+  color: variables.$secondary-slate;
   display: flex;
   justify-content: center;
+  font-size: 0.688rem;
+  line-height: 1rem;
+
+  @include mixins.tablet {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
 }
