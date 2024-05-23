@@ -25,7 +25,8 @@ export default function DeleteModal() {
             setLoading(false);
             setOpen(true);
         } catch (error) {
-            console.log(`ERROR: Unable to fetch Warehouse with given ID`, error)
+            console.log(`ERROR: Unable to fetch Warehouse with given ID`, error);
+            setLoading(false);
         }
     }
 
