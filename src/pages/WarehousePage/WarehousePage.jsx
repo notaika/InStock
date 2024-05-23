@@ -1,4 +1,4 @@
-import WarehouseItem from "../../components/WarehouseItem/WarehouseItem";
+import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -22,7 +22,7 @@ export default function WarehousePage() {
   }, []);
 
   return (
-    <main className="warehouse">
+    <main className="warehouse"> 
       <h1>Warehouse</h1>
       <p>Welcome to the warehouse page!</p>
       <div className="warehouse__list-titles">
@@ -32,10 +32,10 @@ export default function WarehousePage() {
         <h4 className="warehouse__list-title">Contact Information</h4>
         <h4 className="warehouse__list-title">Actions</h4>
       </div>
-      
+
     <section className="warehouse__container">
       {warehouses.map((warehouse) => (
-        <WarehouseItem warehouse={warehouse} key={warehouse.id} />
+        <WarehouseList warehouse={warehouse} key={warehouse.id} />
       ))}
     </section>
     </main>
