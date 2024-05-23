@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import chevronRight from "../../assets/icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
@@ -32,16 +33,19 @@ export default function WarehouseList ( { warehouse } ) {
             </div>
           </div>
           <div className="warehouse__list-functions">
-            <img
-              src={deleteIcon}
-              alt="Red garbage icon for delete button"
-              className="warehouse__list-delete"
-            />
-            <img
-              src={editIcon}
-              alt="A blue pen icon for edit button"
-              className="warehouse__list-edit"
-            />
+          <Link to={`warehouse/delete/${warehouse.id}`}className="warehouse__function-link"><img
+                src={deleteIcon}
+                alt="Red garbage icon for delete button"
+                className="warehouse__list-delete"
+              />
+          </Link>
+          <Link to={`/warehouse/edit/${warehouse.id}`} className="warehouse__function-link">
+              <img
+                src={editIcon}
+                alt="A blue pen icon for edit button"
+                className="warehouse__list-edit"
+              />
+              </Link>
           </div>
         </div>
       </section>
@@ -49,8 +53,8 @@ export default function WarehouseList ( { warehouse } ) {
       <section className="warehouse__list warehouse__list--tablet">
         <div className="warehouse__list-content">
           <div className="warehouse__list-item">
-            <Link to="/:id" className="warehouse__list-nav warehouse__info">
-              {warehouse.warehouse_name}{" "}
+            <Link to={`/${warehouse.id}`} className="warehouse__list-nav warehouse__info">
+              {warehouse.warehouse_name}
               <img
                 src={chevronRight}
                 alt="Icon for warehouse navigation"
@@ -64,13 +68,13 @@ export default function WarehouseList ( { warehouse } ) {
               <p className="warehouse__contact-information">{warehouse.contact_email}</p>
             </div>
             <div className="warehouse__list-functions warehouse__info">
-              <Link to='/warehouse/delete/:id' className="warehouse__function-link"><img
+              <Link to={`/warehouse/delete/${warehouse.id}`}className="warehouse__function-link"><img
                 src={deleteIcon}
                 alt="Red garbage icon for delete button"
                 className="warehouse__list-delete"
               />
               </Link>
-              <Link to='/warehouse/edit/:id' className="warehouse__function-link">
+              <Link to={`/warehouse/edit/${warehouse.id}`} className="warehouse__function-link">
               <img
                 src={editIcon}
                 alt="A blue pen icon for edit button"
