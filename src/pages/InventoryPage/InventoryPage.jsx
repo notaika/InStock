@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./InventoryPage.scss"
+import "./InventoryPage.scss";
 import InventoryList from "../../components/InventoryList/InventoryList";
+import sortIcon from "../../assets/icons/sort-24px.svg";
 
 export default function InventoryPage() {
   const [inventory, setInventory] = useState([]);
@@ -20,32 +21,53 @@ export default function InventoryPage() {
     }
   }
   return (
-    <main className="inventories">
-      <div className="inventory-header">
-        <h1>Inventory</h1>
-        <input type="search" name="search" placeholder="Search..."/>
-        <button>Add New Item</button>
-      </div>
-      <div className="inventory-table">
-        <div className="table-heading">
-          <p>Inventory Item</p>
-          <p>Category</p>
-          <p>Status</p>
-          <p>Qty</p>
-          <p>Warehouse</p>
+    <>
+      <main className="inventories">
+        <div className="inventory-header">
+          <h1>Inventory</h1>
+          <input type="search" name="search" placeholder="Search..." />
+          <button>Add New Item</button>
         </div>
-        {inventory.map((item) => (
-          <InventoryList
-            key={item.id}
-            name={item.item_name}
-            category={item.category}
-            status={item.status}
-            quantity={item.quantity}
-            warehouse={item.warehouse_name}
-          />
-        ))}
-      </div>
-      <div></div>
-    </main>
+        <div>
+          <div className="inventory-tablet">
+            <h2 className="inventory-tablet__heading inventory-tablet__inventory">
+              Inventory Item <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="inventory-tablet__heading inventory-tablet__category">
+              Category
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="inventory-tablet__heading inventory-tablet__status">
+              Status
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="inventory-tablet__heading inventory-tablet__quantity">
+              Qty
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="inventory-tablet__heading inventory-tablet__warehouse">
+              Warehouse
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="inventory-tablet__heading inventory-tablet__actions">
+              Actions
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+          </div>
+          {inventory.map((item) => (
+            <InventoryList
+              key={item.id}
+              name={item.item_name}
+              category={item.category}
+              status={item.status}
+              quantity={item.quantity}
+              warehouse={item.warehouse_name}
+              id={item.id}
+            />
+          ))}
+        </div>
+        <div></div>
+      </main>
+    </>
   );
 }
