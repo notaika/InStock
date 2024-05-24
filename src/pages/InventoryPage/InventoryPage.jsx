@@ -24,9 +24,9 @@ export default function InventoryPage() {
     <>
       <main className="inventories">
         <div className="inventory-header">
-          <h1>Inventory</h1>
-          <input type="search" name="search" placeholder="Search..." />
-          <button>Add New Item</button>
+          <h1 className="inventory-header__title">Inventory</h1>
+          <input type="search" name="search" placeholder="Search..." className="inventory-header__search"/>
+          <button className="inventory-header__button">+ Add New Item</button>
         </div>
         <div>
           <div className="inventory-tablet">
