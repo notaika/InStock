@@ -42,22 +42,22 @@ body {
         text-align: start;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        overflow: hidden;
         border-radius: 0.25rem;
         justify-content: space-between;
         background-color: white;
         position: relative;
 
         @include mixins.tablet {
-            min-height: 35vh;
+            min-height: 20%;
             width: 90vw;
             padding: 3rem 4.5rem;
-            bottom: 100px;
+            bottom: 200px;
         }
 
         @include mixins.desktop {
+            min-height: 25%;
             width: 55vw;
+            bottom: 120px;
         }
 
         &-functions {
