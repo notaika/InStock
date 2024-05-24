@@ -1,0 +1,75 @@
+@use '../../styles/partials/mixins';
+@use '../../styles/partials/variables';
+
+@mixin stock-pill{
+    padding: 0.25rem 0.5rem;
+    border-radius: 1.25rem;
+    font-weight: 600;
+    font-size: .6875rem;
+    text-transform: uppercase;
+
+    @include mixins.tablet{
+        font-size: .75rem;
+    }
+}
+
+.inventory-item{
+
+    &__container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        border-bottom: 1px solid variables.$secondary-cloud;
+    }
+
+
+    &__title{
+        color: variables.$secondary-slate;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin: 8px 0 4px 0;
+        font-size: .6875rem;
+
+        @include mixins.tablet{
+            font-size: .75rem;
+        }
+    }
+
+    &__name{
+        width: 50%;
+    }
+
+    &__category{
+        width: 50%;
+    }
+
+    &__status{
+        width: 50%;
+    }
+
+    &__quantity{
+        width: 50%;
+    }
+
+    &__warehouse{
+        width: 50%;
+    }
+
+    &__actions{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__instock{
+        background-color: variables.$indicator-green;
+        color: variables.$green;
+        @include stock-pill()
+    }
+
+    &__notinstock{
+        background-color: variables.$indicator-red;
+        color: variables.$red;
+        @include stock-pill()
+    }
+}

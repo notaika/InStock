@@ -1,7 +1,7 @@
-import InventoryItem from "../../components/InventoryItem/InventoryItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./InventoryPage.scss"
+import InventoryList from "../../components/InventoryList/InventoryList";
 
 export default function InventoryPage() {
   const [inventory, setInventory] = useState([]);
@@ -35,7 +35,7 @@ export default function InventoryPage() {
           <p>Warehouse</p>
         </div>
         {inventory.map((item) => (
-          <InventoryItem
+          <InventoryList
             key={item.id}
             name={item.item_name}
             category={item.category}
