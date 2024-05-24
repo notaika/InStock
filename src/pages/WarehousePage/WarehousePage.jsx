@@ -11,7 +11,6 @@ export default function WarehousePage() {
         `${import.meta.env.VITE_LOCALHOST}/api/warehouses`
       );
       setWarehouses(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error(`ERROR: Could not fetch warehouses data`, error);
     }

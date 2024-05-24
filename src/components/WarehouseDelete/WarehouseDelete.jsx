@@ -1,10 +1,14 @@
-import React from 'react'
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import WarehouseList from '../WarehouseList/WarehouseList';
+import DeleteModal from '../DeleteModal/DeleteModal';
+import './WarehouseDelete.scss'
 
 export default function WarehouseDelete() {
   return (
-    <div>
-      <h1>Warehouse - Delete</h1>
-      <p>Welcome to the warehouse (delete) page!</p>
-    </div>
+    <>
+
+  
+    </>
   )
 }

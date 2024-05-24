@@ -10,19 +10,18 @@ import InventoryDelete from './components/InventoryDelete/InventoryDelete';
 import InventoryItem from './components/InventoryItem/InventoryItem';
 import InventoryEdit from './components/InventoryEdit/InventoryEdit';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import DeleteModal from './components/DeleteModal/DeleteModal';
 import './index.scss'
 
 function App() {
-
   return (
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<WarehousePage />}/>
-      <Route path='/warehouse' element={<WarehousePage />}/>
       <Route path='/warehouse/:id' element={<WarehouseItem />}/>
       <Route path='/warehouse/edit/:id' element={<WarehouseEdit />}/>
       <Route path='/warehouse/add' element={<WarehouseAdd />}/>
-      <Route path='/warehouse/delete/:id' element={<WarehouseDelete />}/>
+      <Route path='/warehouse/delete/:id' element={<DeleteModal />}/>
       <Route path='/inventory' element={<InventoryPage />} />
       <Route path='/inventory/:id' element={<InventoryItem />} />
       <Route path='/inventory/edit/:id' element={<InventoryEdit />} />
