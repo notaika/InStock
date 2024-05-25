@@ -71,12 +71,8 @@
   &__input-area {
     @include mixins.mobile-input;
     height: 6rem;
-    position: relative;
-
-    &::placeholder {
-      position: absolute;
-      top: 8px;
-    }
+    padding-top: 0.50rem;
+    resize: none;
   }
 
   &__dropdown-label {

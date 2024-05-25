@@ -3,7 +3,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "./InventoryAdd.scss";
-import { TextInput, RadioInput, SelectInput } from "../../utils/FormHelper";
+import { TextInput, TextAreaInput, RadioInput, SelectInput } from "../../utils/FormHelper";
 import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
 // import Footer from "../Footer/Footer";
 
@@ -84,14 +84,7 @@ export default function InventoryAdd() {
                 labelClassName="inventory-add__label"
               />
 
-              <TextInput
-                label="Description"
-                name="description"
-                type="textarea"
-                placeholder="Please enter a brief item description..."
-                className="inventory-add__input-area"
-                labelClassName="inventory-add__label"
-              />
+              <TextAreaInput label="Description" name="description" placeholder="Please enter a brief item description..." className="inventory-add__input-area" labelClassName="inventory-add__label"/>
 
               <SelectInput
                 label="Category"
@@ -113,16 +106,16 @@ export default function InventoryAdd() {
               <div className="inventory-add__radio-container">
                 Status
                 <div className="inventory-add__radio-buttons">
-                  <RadioInput name="status" value="inStock">
+                  <RadioInput name="status" value="In Stock">
                     In Stock
                   </RadioInput>
-                  <RadioInput name="status" value="outOfStock">
+                  <RadioInput name="status" value="Out Of Stock">
                     Out Of Stock
                   </RadioInput>
                 </div>
               </div>
 
-              {values.status !== "outOfStock" && (
+              {values.status !== "Out Of Stock" && (
                 <TextInput
                   label="Quantity"
                   name="quantity"

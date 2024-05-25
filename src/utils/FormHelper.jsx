@@ -24,6 +24,19 @@ export function TextInput({ label, labelClassName, ...props }) {
   );
 }
 
+export function TextAreaInput({ label, labelClassName, ...props }) {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <label htmlFor={props.name} className={labelClassName}>
+        {label}
+      </label>
+      <textarea className="textarea-input" {...field} {...props} />
+      {meta.touched && meta.error ? showError(meta) : null}
+    </>
+  );
+}
+
 export function RadioInput({ children, ...props }) {
   const [field, meta] = useField({ ...props, type: "radio" });
   return (
