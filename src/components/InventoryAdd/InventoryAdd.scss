@@ -1,0 +1,27 @@
+.inventory-add {
+  margin: 1rem;
+
+  &__left-container,
+  &__right-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label,
+  &__dropdown-label,
+  &__radio-container {
+    font-size: 20px;
+  }
+
+  &__dropdown-label {
+    display: flex;
+  }
+
+  &__radio-buttons {
+    display: flex;
+  }
+
+  // &__input {
+  //   background-color: pink;
+  // }
+}
