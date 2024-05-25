@@ -13,6 +13,7 @@ function showError(meta) {
 
 export function TextInput({ label, labelClassName, ...props }) {
   const [field, meta] = useField(props);
+
   return (
     <>
       <label htmlFor={props.name} className={labelClassName}>

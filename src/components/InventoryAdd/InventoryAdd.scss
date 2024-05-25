@@ -7,13 +7,18 @@
   &__title-wrapper {
     display: flex;
     align-items: flex-start;
-    padding-top: 1rem;
+    margin-top: 1rem;
     padding-bottom: 1rem;
+    border-bottom: 1px solid variables.$secondary-cloud;
   }
 
   &__header-icon {
     padding-top: 6px;
     padding-right: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__fields-container {
@@ -27,7 +32,8 @@
   &__right-container {
     display: flex;
     flex-direction: column;
-    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
   }
 
   &__left-container {
@@ -52,7 +58,7 @@
     font-size: 20px;
     line-height: 28px;
     font-weight: 600;
-    padding-top: 1rem;
+    // margin-top: 1rem;
   }
 
   &__label,
@@ -116,6 +122,10 @@
       padding-left: 3rem;
       padding-right: 3rem;
       background-color: white;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
     &--right {
       @include mixins.mobile-button;
@@ -124,6 +134,10 @@
       padding-right: 3rem;
       background-color: variables.$primary-indigo;
       color: variables.$primary-white;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
