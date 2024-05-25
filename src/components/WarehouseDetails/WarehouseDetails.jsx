@@ -3,6 +3,7 @@ import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-white-24px.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -30,11 +31,13 @@ const WarehouseDetails = ({ id }) => {
     <section className="warehouse-details">
       <div className="warehouse-details__header">
         <div className="warehouse-details__title-wrapper">
+          <Link to="/">
           <img
             src={arrowIcon}
             alt="back arrow icon"
             className="warehouse-details__icon"
           />
+          </Link>
           <h1 className="warehouse-details__title">
             {warehouseDetails.warehouse_name}
           </h1>

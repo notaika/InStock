@@ -18,13 +18,13 @@
   border-radius: 1.25rem;
 }
 
-//Form mixins start here
-
 @mixin mobile-button {
   height: 2.25rem;
   padding: 0 1rem;
   border-radius: 1.25rem;
 }
+
+//Form mixins start here
 
 @mixin mobile-label {
   font-size: 0.813rem;
