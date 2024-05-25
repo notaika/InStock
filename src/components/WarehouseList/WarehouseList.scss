@@ -125,6 +125,7 @@
         width: 20%;
         text-align: left;
         margin-left: 40px;
+        overflow: visible;
     }
     &__contact-information, &__address {
         @include mixins.tablet {
