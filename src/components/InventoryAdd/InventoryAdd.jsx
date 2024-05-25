@@ -3,51 +3,9 @@ import { Form, Formik, useField } from "formik";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./InventoryAdd.scss";
+import { TextInput, RadioInput, SelectInput } from '../../utils/FormHelper';
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
-
-const TextInput = ({ label, labelClassName, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-    <>
-      <label htmlFor={props.name} className={labelClassName}>
-        {label}
-      </label>
-      <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </>
-  );
-};
-
-const RadioInput = ({ children, ...props }) => {
-  const [field, meta] = useField({ ...props, type: "radio" });
-  return (
-    <div>
-      <label className="radio-input">
-        <input type="radio" {...field} {...props} />
-        {children}
-      </label>
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
-
-const SelectInput = ({ label, labelClassName, ...props }) => {
-  const [field, meta] = useField(props);
-  return (
-    <div>
-      <label htmlFor={props.name} className={labelClassName}>{label}</label>
-      <select {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </div>
-  );
-};
 
 export default function InventoryAdd() {
   // TODO:
@@ -73,23 +31,6 @@ export default function InventoryAdd() {
   useEffect(() => {
     getWarehouseList();
   }, []);
-
-  const validate = (values) => {
-    const errors = {};
-    if (!values.name) {
-      errors.name = "Required";
-    } else if (values.name.length > 15) {
-      errors.name = "Must be 15 characters or less";
-    }
-
-    if (!values.description) {
-      errors.description = "Required";
-    } else if (values.description.length > 20) {
-      errors.description = "Must be 20 characters or less";
-    }
-
-    return errors;
-  };
 
   return (
     <>
@@ -120,6 +61,7 @@ export default function InventoryAdd() {
                 label="Item Name"
                 name="name"
                 type="text"
+                placeholder="Item Name"
                 className="inventory-add__input"
                 labelClassName="inventory-add__label"
               />
@@ -176,7 +118,7 @@ export default function InventoryAdd() {
               <SelectInput
                 label="Warehouse"
                 name="warehouse"
-                className="inventory-add__dropdown"
+                className="inventory-add__dropdown-input"
                 labelClassName="inventory-add__dropdown-label"
               >
                 <option value="">Please select</option>
@@ -189,8 +131,8 @@ export default function InventoryAdd() {
             </div>
 
             <div className="inventory-add__button-container">
-              <button type="submit">Cancel</button>
-              <button type="submit">Submit</button>
+              <button type="submit" className="inventory-add__button-item">Cancel</button>
+              <button type="submit" className="inventory-add__button-item">Add Item</button>
             </div>
           </Form>
         )}

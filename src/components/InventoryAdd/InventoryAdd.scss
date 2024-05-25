@@ -1,3 +1,6 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
 .inventory-add {
   margin: 1rem;
 
@@ -10,18 +13,48 @@
   &__label,
   &__dropdown-label,
   &__radio-container {
-    font-size: 20px;
+    @include mixins.mobile-label;
+
+    @include mixins.tablet {
+      @include mixins.tablet-desktop-label;
+    }
   }
 
   &__dropdown-label {
     display: flex;
+    
+  }
+
+  &__dropdown-input {
+    @include mixins.mobile-input;
+    width: 100%;
+    color: variables.$secondary-slate;
   }
 
   &__radio-buttons {
     display: flex;
+    justify-content: space-between;
+    margin-right: 5rem;
   }
 
-  // &__input {
-  //   background-color: pink;
-  // }
+  &__input {
+    @include mixins.mobile-input;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-between;
+    padding: 2rem 0;
+    background-color: variables.$bg-lightgrey;
+  }
+
+  &__button-item {
+    @include mixins.mobile-button;
+    background-color: variables.$primary-indigo;
+    color: variables.$primary-white;
+    border: 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
