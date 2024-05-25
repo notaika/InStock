@@ -5,21 +5,25 @@ import axios from "axios";
 import "./InventoryAdd.scss";
 import { TextInput, TextAreaInput, RadioInput, SelectInput } from "../../utils/FormHelper";
 import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
 export default function InventoryAdd() {
-  // TODO:
-  // const postInventoryItem = async () => {
-  //   try {
-  //     const warehouseRequest = await axios.post(`${API_URL}/api/inventories`)
-  //   } catch (error) {
-  //     console.error('Error creating a new inventory item', error)
-  //   }
-  // };
-
   const [warehouseList, setWarehouseList] = useState([]);
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   postInventoryItem();
+  // }
+  // TODO:
+  const postInventoryItem = async () => {
+    try {
+      const warehouseRequest = await axios.post(`${API_URL}/api/inventories`)
+    } catch (error) {
+      console.error('Error creating a new inventory item', error)
+    }
+  };
 
   const getWarehouseList = async () => {
     try {
@@ -40,15 +44,15 @@ export default function InventoryAdd() {
     <>
       <Formik
         initialValues={{
-          name: "",
+          item_name: "",
           description: "",
           category: "",
-          status: "inStock",
+          status: "In Stock",
           quantity: "",
-          warehouse: "",
+          warehouse: ""
         }}
         validationSchema={Yup.object({
-          name: Yup.string().required(errorMessage),
+          item_name: Yup.string().required(errorMessage),
           description: Yup.string().required(errorMessage),
           category: Yup.string().required(errorMessage),
           status: Yup.string().required(errorMessage),
@@ -59,8 +63,16 @@ export default function InventoryAdd() {
           }),
           warehouse: Yup.number().required(errorMessage),
         })}
-        onSubmit={(values) => {
+        onSubmit={async (values, { setSubmitting }) => {
           console.log(values);
+            try {
+              const warehouseRequest = await axios.post(`${API_URL}/api/inventories`, values)
+              console.log(warehouseRequest);
+            } catch (error) {
+              console.error('Error creating a new inventory item', error);
+            } finally {
+              setSubmitting(false);
+            }
         }}
       >
         {({ values }) => (
@@ -77,7 +89,7 @@ export default function InventoryAdd() {
               <h2 className="inventory-add__subtitle">Item Details</h2>
               <TextInput
                 label="Item Name"
-                name="name"
+                name="item_name"
                 type="text"
                 placeholder="Item Name"
                 className="inventory-add__input"
@@ -153,8 +165,7 @@ export default function InventoryAdd() {
           </Form>
         )}
       </Formik>
-
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
