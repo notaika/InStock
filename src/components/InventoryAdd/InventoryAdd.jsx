@@ -12,18 +12,13 @@ const API_URL = import.meta.env.VITE_LOCALHOST;
 export default function InventoryAdd() {
   const [warehouseList, setWarehouseList] = useState([]);
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   postInventoryItem();
-  // }
-  // TODO:
-  const postInventoryItem = async () => {
-    try {
-      const warehouseRequest = await axios.post(`${API_URL}/api/inventories`)
-    } catch (error) {
-      console.error('Error creating a new inventory item', error)
-    }
-  };
+  // const postInventoryItem = async () => {
+  //   try {
+  //     const warehouseRequest = await axios.post(`${API_URL}/api/inventories`)
+  //   } catch (error) {
+  //     console.error('Error creating a new inventory item', error)
+  //   }
+  // };
 
   const getWarehouseList = async () => {
     try {
@@ -39,6 +34,7 @@ export default function InventoryAdd() {
   }, []);
 
   const errorMessage = "This field is required";
+  const categories = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health'];
 
   return (
     <>
@@ -49,8 +45,9 @@ export default function InventoryAdd() {
           category: "",
           status: "In Stock",
           quantity: "",
-          warehouse: ""
+          warehouse_id: "",
         }}
+
         validationSchema={Yup.object({
           item_name: Yup.string().required(errorMessage),
           description: Yup.string().required(errorMessage),
@@ -61,8 +58,9 @@ export default function InventoryAdd() {
             then: (schema) =>
               schema.required(errorMessage).positive().integer(),
           }),
-          warehouse: Yup.number().required(errorMessage),
+          warehouse_id: Yup.number().required(errorMessage),
         })}
+
         onSubmit={async (values, { setSubmitting }) => {
           console.log(values);
             try {
@@ -75,6 +73,7 @@ export default function InventoryAdd() {
             }
         }}
       >
+
         {({ values }) => (
           <Form className="inventory-add">
             <div className="inventory-add__header">
@@ -105,10 +104,19 @@ export default function InventoryAdd() {
                 labelClassName="inventory-add__dropdown-label"
               >
                 <option value="">Please select</option>
-                <option value="electronics">Electronics</option>
-                <option value="gear">Gear</option>
-                <option value="apparel">Apparel</option>
-                <option value="health">Health</option>
+                {
+                categories.map((category) => {
+                  return (
+                    <option key={category} value={category}>{category}</option>
+                  )
+                }
+                )
+                }
+                {/* <option value="Electronics">Electronics</option>
+                <option value="Gear">Gear</option>
+                <option value="Apparel">Apparel</option>
+                <option value="Health">Health</option>
+                <option value="Accessorties">Accessories</option> */}
               </SelectInput>
             </div>
 
@@ -140,7 +148,7 @@ export default function InventoryAdd() {
 
               <SelectInput
                 label="Warehouse"
-                name="warehouse"
+                name="warehouse_id"
                 className="inventory-add__dropdown-input"
                 labelClassName="inventory-add__dropdown-label"
               >
