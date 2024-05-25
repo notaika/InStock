@@ -44,7 +44,7 @@ export function RadioInput({ children, ...props }) {
     <div>
       <label className="radio-input">
         <input type="radio" {...field} {...props} />
-        {children}
+        <span className="radio-input__copy">{children}</span>
       </label>
       {meta.touched && meta.error ? showError(meta) : null}
     </div>

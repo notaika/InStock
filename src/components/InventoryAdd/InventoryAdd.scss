@@ -58,7 +58,6 @@
     font-size: 20px;
     line-height: 28px;
     font-weight: 600;
-    // margin-top: 1rem;
   }
 
   &__label,
@@ -72,6 +71,12 @@
 
   &__input {
     @include mixins.mobile-input;
+
+    @include mixins.tablet {
+      &--small {
+        width: 40%;
+      }
+    }
   }
 
   &__input-area {
@@ -103,6 +108,16 @@
     font-weight: 400;
   }
 
+  &__radio-buttons > input {
+    color: red;
+   
+  }
+
+  &__radio-item > value {
+    color: red;
+    background-color: red;
+  }
+
   &__button-container {
     display: flex;
     justify-content: space-around;
@@ -112,6 +127,7 @@
 
     @include mixins.tablet {
       justify-content: flex-end;
+      padding-right: 1rem;
     }
   }
 
@@ -119,9 +135,14 @@
     &--left {
       @include mixins.mobile-button;
       border: 0;
-      padding-left: 3rem;
-      padding-right: 3rem;
+      width: 40%;
       background-color: white;
+      border: 1px solid variables.$secondary-cloud;
+
+      @include mixins.tablet {
+        margin-right: 1rem;
+        width: auto;
+      }
 
       &:hover {
         cursor: pointer;
@@ -130,10 +151,13 @@
     &--right {
       @include mixins.mobile-button;
       border: 0;
-      padding-left: 3rem;
-      padding-right: 3rem;
+      width: 40%;
       background-color: variables.$primary-indigo;
       color: variables.$primary-white;
+
+      @include mixins.tablet {
+        width: auto;
+      }
 
       &:hover {
         cursor: pointer;

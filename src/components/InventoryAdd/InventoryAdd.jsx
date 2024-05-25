@@ -11,6 +11,7 @@ import {
 } from "../../utils/FormHelper";
 import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -81,11 +82,13 @@ export default function InventoryAdd() {
           <Form className="inventory-add">
             <div className="inventory-add__header">
               <div className="inventory-add__title-wrapper">
+                <Link to="/inventory">
                 <img
                   src={arrowIcon}
                   alt="Back arrow"
                   className="inventory-add__header-icon"
                 />
+                </ Link>
                 <h1 className="inventory-add__title">Add New Inventory Item</h1>
               </div>
             </div>
@@ -132,7 +135,7 @@ export default function InventoryAdd() {
                 <div className="inventory-add__radio-container">
                   Status
                   <div className="inventory-add__radio-buttons">
-                    <RadioInput name="status" value="In Stock">
+                    <RadioInput name="status" value="In Stock" className="inventory-add__radio-item">
                       In Stock
                     </RadioInput>
                     <RadioInput name="status" value="Out Of Stock">
@@ -147,7 +150,7 @@ export default function InventoryAdd() {
                     name="quantity"
                     type="text"
                     placeholder="0"
-                    className="inventory-add__input"
+                    className="inventory-add__input inventory-add__input--small"
                     labelClassName="inventory-add__label"
                   />
                 )}
@@ -178,7 +181,7 @@ export default function InventoryAdd() {
                 type="submit"
                 className="inventory-add__button-item--right"
               >
-                Add Item
+                + Add Item
               </button>
             </div>
           </Form>
