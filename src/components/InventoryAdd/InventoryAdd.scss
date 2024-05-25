@@ -58,3 +58,15 @@
     padding-right: 3rem;
   }
 }
+
+.error-container {
+  display: flex;
+}
+.error {
+  color: red;
+  padding-left: 4px;
+}
+
+.errorIcon {
+  height: 1rem;
+}

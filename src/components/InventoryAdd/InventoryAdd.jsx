@@ -1,9 +1,9 @@
-import React from "react";
-import { Form, Formik, useField } from "formik";
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import "./InventoryAdd.scss";
-import { TextInput, RadioInput, SelectInput } from '../../utils/FormHelper';
+import { TextInput, RadioInput, SelectInput } from "../../utils/FormHelper";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -32,6 +32,8 @@ export default function InventoryAdd() {
     getWarehouseList();
   }, []);
 
+  const errorMessage = "This field is required";
+
   return (
     <>
       <Formik
@@ -43,12 +45,20 @@ export default function InventoryAdd() {
           quantity: "",
           warehouse: "",
         }}
-        onSubmit={(values, { setSubmitting }) => {
+        validationSchema={Yup.object({
+          name: Yup.string().required(errorMessage),
+          description: Yup.string().required(errorMessage),
+          category: Yup.string().required(errorMessage),
+          status: Yup.string().required(errorMessage),
+          quantity: Yup.number().when("status", {
+            is: "inStock",
+            then: (schema) =>
+              schema.required(errorMessage).positive().integer(),
+          }),
+          warehouse: Yup.number().required(errorMessage),
+        })}
+        onSubmit={(values) => {
           console.log(values);
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
         }}
       >
         {({ values }) => (
@@ -95,12 +105,12 @@ export default function InventoryAdd() {
               <div className="inventory-add__radio-container">
                 Status
                 <div className="inventory-add__radio-buttons">
-                <RadioInput name="status" value="inStock">
-                  InStock
-                </RadioInput>
-                <RadioInput name="status" value="outOfStock">
-                  Out Of Stock
-                </RadioInput>
+                  <RadioInput name="status" value="inStock">
+                    In Stock
+                  </RadioInput>
+                  <RadioInput name="status" value="outOfStock">
+                    Out Of Stock
+                  </RadioInput>
                 </div>
               </div>
 
@@ -131,8 +141,12 @@ export default function InventoryAdd() {
             </div>
 
             <div className="inventory-add__button-container">
-              <button type="submit" className="inventory-add__button-item">Cancel</button>
-              <button type="submit" className="inventory-add__button-item">Add Item</button>
+              <button type="" className="inventory-add__button-item">
+                Cancel
+              </button>
+              <button type="submit" className="inventory-add__button-item">
+                Add Item
+              </button>
             </div>
           </Form>
         )}
