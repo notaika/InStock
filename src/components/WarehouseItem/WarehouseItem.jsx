@@ -10,7 +10,6 @@ export default function WarehouseItem() {
   return (
     <div>
       <WarehouseDetails id={id} />
-      <WareHouseInventoryList id={id} />
     </div>
   );
 }

@@ -19,7 +19,6 @@
 
   @include mixins.tablet {
     margin-bottom: 0;
-    flex-basis: 20%;
   }
 }
 a {
@@ -72,6 +71,7 @@ a {
 
     @include mixins.tablet{
         order: 1;
+        width: 22%;
     }
   }
 
@@ -80,6 +80,7 @@ a {
 
     @include mixins.tablet{
         order: 3;
+        width: 27%;
     }
   }
 
@@ -98,9 +99,8 @@ a {
   &__quantity {
     @include card-half-width();
 
-
     @include mixins.tablet {
-      flex-basis: 10%;
+      width: 18%;
       order: 4;
     }
   }
@@ -110,6 +110,7 @@ a {
 
     @include mixins.tablet{
         order: 2;
+        width: 20%;
     }
   }
 
@@ -120,10 +121,10 @@ a {
     order: 6;
 
     @include mixins.tablet {
-      flex-basis: 10%;
+      width: auto;
       gap: 1rem;
-      align-items: flex-end;
-      max-width: 3.375rem;
+    //   align-items: flex-end;
+      max-width: 4rem;
     }
   }
 

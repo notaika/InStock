@@ -2,13 +2,14 @@
 @use "../../styles/partials/mixins";
 
 .warehouse-details {
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 2em;
+  margin-right:2em;
+  margin-top: -4em;
   border: 1px solid variables.$secondary-cloud;
   color: variables.$primary-black;
-  margin-top: 5rem;
+  background-color: variables.$primary-white;
   outline: none;
-
+  
   &__header {
     display: flex;
     padding: 1.5rem 1rem;
@@ -17,6 +18,10 @@
 
   &__title-wrapper {
     display: flex;
+  }
+
+  &__title{
+    overflow: visible;
   }
 
   &__edit-button {
@@ -39,7 +44,6 @@
 
     &:hover {
       background-color: variables.$primary-black;
-
     }
   }
 
@@ -124,5 +128,55 @@
     @include mixins.tablet {
       font-size: 0.875rem;
     }
+  }
+}
+
+.warehouse-list-tablet{
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+
+  @include mixins.tablet{
+      background-color: variables.$bg-lightgrey;
+      padding: .6875rem 2rem;
+  }
+
+  &__heading{
+      display: none;
+
+      @include mixins.tablet{
+          display: flex;
+          align-items: center;
+          gap:.25rem;
+          color: variables.$secondary-slate;
+          text-transform: uppercase;
+          font-weight: 600;
+          line-height: 1rem;
+          margin-bottom: .25rem;
+          font-size: .75rem;
+      }
+  }
+
+  &__inventory{
+      width: 22%;
+  }
+  
+  &__category{
+      width: 20%;
+  }
+  
+  &__status{
+      width: 27%;
+  }
+  
+  &__quantity{
+      width: 18%;
+  }
+
+  &__actions{
+      max-width: 3.37rem;
+      text-align: right;
+      margin-left: 1rem;
+      overflow: visible;
   }
 }

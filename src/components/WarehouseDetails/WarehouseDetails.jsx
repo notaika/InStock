@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -32,7 +34,6 @@ const WarehouseDetails = ({ id }) => {
         `${import.meta.env.VITE_LOCALHOST}/api/warehouses/${id}/inventories`
       );
       setWarehouseInventory(response.data);
-      // console.log(response.data);
     } catch (error) {
       console.error(`ERROR: Could not fetch inventory data`, error);
     }
@@ -45,6 +46,7 @@ const WarehouseDetails = ({ id }) => {
 
   return (
     <>
+      <Header />
       <section className="warehouse-details">
         <div className="warehouse-details__header">
           <div className="warehouse-details__title-wrapper">
@@ -103,40 +105,38 @@ const WarehouseDetails = ({ id }) => {
             </ul>
           </div>
         </div>
-      </section>
-      <section>
-        <div className="inventory-tablet">
-          <h2 className="inventory-tablet__heading inventory-tablet__inventory">
+        <div className="warehouse-list-tablet">
+          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__inventory">
             Inventory Item <img src={sortIcon} alt="Icon for sorting" />
           </h2>
-          <h2 className="inventory-tablet__heading inventory-tablet__category">
+          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__category">
             Category
             <img src={sortIcon} alt="Icon for sorting" />
           </h2>
-          <h2 className="inventory-tablet__heading inventory-tablet__status">
+          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__status">
             Status
             <img src={sortIcon} alt="Icon for sorting" />
           </h2>
-          <h2 className="inventory-tablet__heading inventory-tablet__quantity">
+          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__quantity">
             Qty
             <img src={sortIcon} alt="Icon for sorting" />
           </h2>
-          <h2 className="inventory-tablet__heading inventory-tablet__actions">
+          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__actions">
             Actions
-            <img src={sortIcon} alt="Icon for sorting" />
           </h2>
         </div>
+        {warehouseInventory.map((item) => (
+          <WarehouseInventoryList
+            key={item.id}
+            name={item.item_name}
+            category={item.category}
+            status={item.status}
+            quantity={item.quantity}
+            id={item.id}
+          />
+        ))}
       </section>
-      {warehouseInventory.map((item) => (
-        <WarehouseInventoryList
-          key={item.id}
-          name={item.item_name}
-          category={item.category}
-          status={item.status}
-          quantity={item.quantity}
-          id={item.id}
-        />
-      ))}
+      <Footer />
     </>
   );
 };
