@@ -10,8 +10,8 @@ function Header(){
                 <img className="header__logo-size" src={Image} alt="Logo" />
             </div>
             <ul className="header__list">
-                <li  className="header__menu"><Link to="/warehouses">Warehouses</Link></li>
-                <li  className="header__menu"><Link to="/inventory">Inventory</Link></li>
+                <li  className="header__menu"><Link to="/" className="header__decor">Warehouses</Link></li>
+                <li  className="header__menu"><Link to="/inventory" className="header__decor">Inventory</Link></li>
             </ul>
        </div> 
     );
