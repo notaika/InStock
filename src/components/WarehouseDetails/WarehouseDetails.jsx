@@ -7,6 +7,7 @@ import WarehouseInventoryList from "../WarehouseInventoryList/WarehouseInventory
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -50,11 +51,13 @@ const WarehouseDetails = ({ id }) => {
       <section className="warehouse-details">
         <div className="warehouse-details__header">
           <div className="warehouse-details__title-wrapper">
-            <img
-              src={arrowIcon}
-              alt="back arrow icon"
-              className="warehouse-details__icon"
-            />
+            <Link to="/">
+              <img
+                src={arrowIcon}
+                alt="back arrow icon"
+                className="warehouse-details__icon"
+              />
+            </Link>
             <h1 className="warehouse-details__title">
               {warehouseDetails.warehouse_name}
             </h1>
