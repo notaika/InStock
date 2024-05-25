@@ -9,7 +9,15 @@
     }
 }
 
+html, body {
+    overflow: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .warehouse {
+
     &__list {
         &--mobile {
             @include mixins.tablet {
@@ -29,13 +37,15 @@
         &-item {
             display: flex;
             flex-direction: column;
-            border-bottom: 1px solid variables.$secondary-cloud;
-            padding-top: 36px;
 
             @include mixins.tablet {
                 flex-direction: row;
-                margin: 0 0 16px 0;
+                margin: 0 4px 16px 24px;
                 border-bottom: none;
+                padding-top: 36px;
+                justify-content: center;
+                align-content: center;
+
             }
         }
         &-delete, &-edit {
@@ -50,11 +60,11 @@
         &--left, &--right {
             display: flex;
             flex-direction: column;
-            width: 55%;
+            width: 50%;
         }
         &--left {
             margin-left: 24px;
-            width: 45%;
+            width: 50%;
         }
         &-title {
             color: variables.$secondary-slate;
@@ -66,13 +76,13 @@
                 margin: 10px 0;
                 width: 20%;
                 font-size: 12px;
-                margin-left: 40px;
+                // margin-left: 40px;
                 white-space: nowrap;
 
                 &:last-child {
                     @include mixins.tablet {
                         text-align: center;
-                        padding-right: 40px;
+                        // padding-right: 40px;
                     }
                     @include mixins.desktop {
                         padding: 0;
@@ -96,20 +106,15 @@
         &-functions {
             display: flex;
             justify-content: space-between;
-            margin: 0 24px 24px 24px;
+            margin: 0 24px 16px 24px;
 
             @include mixins.tablet {
-                margin: 0;
-                justify-content: center;
+                position: relative;
+                left: 1%;
+                justify-content: flex-end;
             }
             @include mixins.desktop {
-                position: relative;
-                left: 2%;
-            }
-        }
-        &-edit {
-            @include mixins.tablet {
-                margin-right: 40px;
+                left: -2%;
             }
         }
         &-titles {
@@ -122,9 +127,9 @@
         }
     }
     &__info {
-        width: 20%;
+        width: 18%;
         text-align: left;
-        margin-left: 40px;
+        margin-left: 10px;
         overflow: visible;
     }
     &__contact-information, &__address {
@@ -136,6 +141,9 @@
     &__contact {
         &-name {
             margin-bottom: 9px;
+        }
+        &-information {
+            margin-left: 10px;
         }
     }
     &__address {

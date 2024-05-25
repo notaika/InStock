@@ -1,0 +1,112 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+.warehouse {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    right: 2em;
+    margin-top: 7.5em; /* Adjust as needed */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: white;
+    border-radius: 2px;
+
+    @include mixins.tablet {
+        margin-top: 3.5rem    
+    }
+    &__header {
+        display: flex;
+        flex-direction: column;
+
+        @include mixins.tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            padding-bottom: 8px;
+        }
+    }
+    &__title {
+        padding: 36px 0 16px 36px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid variables.$secondary-cloud;
+        padding-bottom: 16px;
+
+        @include mixins.tablet {
+            flex-direction: row;
+            padding: 24px 36px 0 0;
+            border-bottom: none;
+        }
+        @include mixins.desktop {
+            width: 50%;
+        }
+    }
+    &__search {
+        &-input {
+            width: 80%;
+            height: 2rem;
+            border-radius: 20px;
+            border: 1px solid variables.$secondary-cloud;
+            padding: 1.1rem;
+            background-image: url('/src/assets/icons/search-24px.svg');
+            background-repeat: no-repeat;
+            background-position: calc(100% - 0.3rem);
+            margin-bottom: 16px;
+
+            @include mixins.tablet {
+                margin: 0 16px;
+            }
+            @include mixins.desktop {
+                width: 100%;
+            }
+        }
+        &-btn {
+            height: 2.15rem;
+            width: 80%;
+            background-color: variables.$primary-indigo;
+            color: white;
+            font-weight: 400;
+            text-decoration: none;
+            border-radius: 20px;
+            text-align: center;
+            align-content: center;
+
+            @include mixins.tablet {
+                padding: 0 1rem 0.1rem 1rem ;
+            }
+            @include mixins.desktop {
+                width: 50%;
+            }
+        }
+    }
+    &__list {
+        &-titles {
+            padding-left: 36px;
+        }
+        &-title {
+            flex: 0.5;
+
+            @include mixins.tablet {
+                &:last-child {
+                    width: 50px;
+                    flex: 0.43;
+                }
+            }
+          }
+    }
+    &__container {
+        background-color: white;
+      }
+    &__sort {
+        height: 18px;
+        position: relative;
+        top: 5px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
