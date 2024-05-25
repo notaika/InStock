@@ -4,15 +4,59 @@
 .inventory-add {
   margin: 1rem;
 
+  &__title-wrapper {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__header-icon {
+    padding-top: 6px;
+    padding-right: 4px;
+  }
+
+  &__fields-container {
+    @include mixins.tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &__left-container,
   &__right-container {
     display: flex;
     flex-direction: column;
+    padding-bottom: 1.5rem;
+  }
+
+  &__left-container {
+    border-bottom: 1px solid variables.$secondary-cloud;
+
+    @include mixins.tablet {
+      border-bottom: none;
+      width: 50%;
+      border-right: 1px solid variables.$secondary-cloud;
+      padding-right: 2rem;
+    }
+  }
+
+  &__right-container {
+    @include mixins.tablet {
+      width: 50%;
+      padding-left: 2rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+    padding-top: 1rem;
   }
 
   &__label,
-  &__dropdown-label,
-  &__radio-container {
+  &__dropdown-label {
     @include mixins.mobile-label;
 
     @include mixins.tablet {
@@ -20,9 +64,23 @@
     }
   }
 
+  &__input {
+    @include mixins.mobile-input;
+  }
+
+  &__input-area {
+    @include mixins.mobile-input;
+    height: 6rem;
+    position: relative;
+
+    &::placeholder {
+      position: absolute;
+      top: 8px;
+    }
+  }
+
   &__dropdown-label {
     display: flex;
-    
   }
 
   &__dropdown-input {
@@ -31,42 +89,45 @@
     color: variables.$secondary-slate;
   }
 
+  &__radio-container {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
   &__radio-buttons {
     display: flex;
     justify-content: space-between;
     margin-right: 5rem;
-  }
-
-  &__input {
-    @include mixins.mobile-input;
+    font-weight: 400;
   }
 
   &__button-container {
     display: flex;
     justify-content: space-around;
     align-content: space-between;
-    padding: 2rem 0;
+    padding: 1rem 0;
     background-color: variables.$bg-lightgrey;
+
+    @include mixins.tablet {
+      justify-content: flex-end;
+    }
   }
 
   &__button-item {
-    @include mixins.mobile-button;
-    background-color: variables.$primary-indigo;
-    color: variables.$primary-white;
-    border: 0;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    &--left {
+      @include mixins.mobile-button;
+      border: 0;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      background-color: white;
+    }
+    &--right {
+      @include mixins.mobile-button;
+      border: 0;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      background-color: variables.$primary-indigo;
+      color: variables.$primary-white;
+    }
   }
-}
-
-.error-container {
-  display: flex;
-}
-.error {
-  color: red;
-  padding-left: 4px;
-}
-
-.errorIcon {
-  height: 1rem;
 }

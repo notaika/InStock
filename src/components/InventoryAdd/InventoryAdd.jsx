@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import "./InventoryAdd.scss";
 import { TextInput, RadioInput, SelectInput } from "../../utils/FormHelper";
+import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
+// import Footer from "../Footer/Footer";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -63,8 +65,14 @@ export default function InventoryAdd() {
       >
         {({ values }) => (
           <Form className="inventory-add">
-            <h1 className="inventory-add__title">Add New Inventory Item</h1>
-
+            <div className="inventory-add__header">
+              <div className="inventory-add__title-wrapper">
+                <img src={arrowIcon} alt="Back arrow" className="inventory-add__header-icon"/>
+                <h1 className="inventory-add__title">Add New Inventory Item</h1>
+              </div>
+            </div>
+            
+            <div className="inventory-add__fields-container">
             <div className="inventory-add__left-container">
               <h2 className="inventory-add__subtitle">Item Details</h2>
               <TextInput
@@ -79,9 +87,9 @@ export default function InventoryAdd() {
               <TextInput
                 label="Description"
                 name="description"
-                type="text"
-                placeholder="Description"
-                className="inventory-add__input"
+                type="textarea"
+                placeholder="Please enter a brief item description..."
+                className="inventory-add__input-area"
                 labelClassName="inventory-add__label"
               />
 
@@ -139,18 +147,21 @@ export default function InventoryAdd() {
                 ))}
               </SelectInput>
             </div>
+            </div>
 
             <div className="inventory-add__button-container">
-              <button type="" className="inventory-add__button-item">
+              <button type="" className="inventory-add__button-item--left">
                 Cancel
               </button>
-              <button type="submit" className="inventory-add__button-item">
+              <button type="submit" className="inventory-add__button-item--right">
                 Add Item
               </button>
             </div>
           </Form>
         )}
       </Formik>
+
+      {/* <Footer /> */}
     </>
   );
 }

@@ -1,11 +1,12 @@
 import { useField } from "formik";
 import errorIcon from "../assets/icons/error-24px.svg";
+import "./FormHelper.scss";
 
 function showError(meta) {
   return (
-    <div className="error-container">
-      <img src={errorIcon} alt="error icon" className="errorIcon" />
-      <div className="error">{meta.error}</div>
+    <div className="error">
+      <img src={errorIcon} alt="error icon" className="error__icon" />
+      <div className="error__copy">{meta.error}</div>
     </div>
   );
 }
