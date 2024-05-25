@@ -1,0 +1,139 @@
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
+
+@mixin stock-pill {
+  padding: 0.25rem 0.5rem;
+  border-radius: 1.25rem;
+  font-weight: 600;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+
+  @include mixins.tablet {
+    font-size: 0.75rem;
+  }
+}
+
+@mixin card-half-width {
+  width: 50%;
+  margin-bottom: 1rem;
+
+  @include mixins.tablet {
+    margin-bottom: 0;
+    flex-basis: 20%;
+  }
+}
+a {
+  display: block;
+}
+.warehouse-inventory {
+  border-bottom: 1px solid variables.$secondary-cloud;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 1.5rem 1.5rem 1.5rem;
+
+    @include mixins.tablet {
+      flex-wrap: nowrap;
+      align-items: center;
+      margin: 1.125rem 2rem;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    color: variables.$secondary-slate;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1rem;
+    font-size: 0.6875rem;
+    margin-bottom: 0.25rem;
+
+    @include mixins.tablet {
+      font-size: 0.75rem;
+      display: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    align-items: center;
+    color: variables.$primary-indigo;
+  }
+
+  &__detail {
+    line-height: 1.25rem;
+  }
+
+  &__name {
+    @include card-half-width();
+
+    @include mixins.tablet{
+        order: 1;
+    }
+  }
+
+  &__status {
+    @include card-half-width();
+
+    @include mixins.tablet{
+        order: 3;
+    }
+  }
+
+  &__instock {
+    background-color: variables.$indicator-green;
+    color: variables.$green;
+    @include stock-pill();
+  }
+
+  &__notinstock {
+    background-color: variables.$indicator-red;
+    color: variables.$red;
+    @include stock-pill();
+  }
+
+  &__quantity {
+    @include card-half-width();
+
+
+    @include mixins.tablet {
+      flex-basis: 10%;
+      order: 4;
+    }
+  }
+
+  &__category {
+    @include card-half-width();
+
+    @include mixins.tablet{
+        order: 2;
+    }
+  }
+
+  &__actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    order: 6;
+
+    @include mixins.tablet {
+      flex-basis: 10%;
+      gap: 1rem;
+      align-items: flex-end;
+      max-width: 3.375rem;
+    }
+  }
+
+  &__edit {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &__delete {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
