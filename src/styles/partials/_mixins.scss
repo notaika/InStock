@@ -24,6 +24,10 @@
   border-radius: 1.25rem;
 }
 
+@mixin box-shadow{
+  box-shadow: 0px 2px 5px 0px #13182C1A;
+}
+
 //Form mixins start here
 
 @mixin mobile-label {
