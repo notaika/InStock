@@ -11,28 +11,51 @@ function showError(meta) {
   );
 }
 
-export function TextInput({ label, labelClassName, ...props }) {
+export function TextInput({ label, labelClassName, className, ...props }) {
   const [field, meta] = useField(props);
+  const inputClassName = [
+    "text-input",
+    meta.touched && meta.error ? "text-input--error" : "",
+    className,
+  ].join(" ");
 
   return (
     <>
       <label htmlFor={props.name} className={labelClassName}>
         {label}
       </label>
-      <input className="text-input" {...field} {...props} />
+      <input className={inputClassName} {...field} {...props} />
       {meta.touched && meta.error ? showError(meta) : null}
     </>
   );
 }
 
-export function TextAreaInput({ label, labelClassName, ...props }) {
+// export function TextInput({ label, labelClassName, ...props }) {
+//   const [field, meta] = useField(props);
+//   return (
+//     <>
+//       <label htmlFor={props.name} className={labelClassName}>
+//         {label}
+//       </label>
+//       <input className="text-input" {...field} {...props} />
+//       {meta.touched && meta.error ? showError(meta) : null}
+//     </>
+//   );
+// }
+
+export function TextAreaInput({ label, labelClassName, className, ...props }) {
   const [field, meta] = useField(props);
+  const inputClassName = [
+    "text-input",
+    meta.touched && meta.error ? "text-input--error" : "",
+    className,
+  ].join(" ");
   return (
     <>
       <label htmlFor={props.name} className={labelClassName}>
         {label}
       </label>
-      <textarea className="textarea-input" {...field} {...props} />
+      <textarea className={inputClassName} {...field} {...props} />
       {meta.touched && meta.error ? showError(meta) : null}
     </>
   );
@@ -44,6 +67,7 @@ export function RadioInput({ children, ...props }) {
     <div>
       <label className="radio-input">
         <input type="radio" {...field} {...props} />
+        <span className="radio__custom"></span>
         <span className="radio-input__copy">{children}</span>
       </label>
       {meta.touched && meta.error ? showError(meta) : null}
@@ -53,6 +77,7 @@ export function RadioInput({ children, ...props }) {
 
 export function SelectInput({ label, labelClassName, ...props }) {
   const [field, meta] = useField(props);
+  
   return (
     <div>
       <label htmlFor={props.name} className={labelClassName}>
