@@ -1,10 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Axios from "axios";
+import { Link } from "react-router-dom";
 import Header from '../Header/Header'
-import './../InventoryItem/InventoryItem.scss'
+import Footer from '../Footer/Footer'
 import ArrowBack from '../../assets/icons/arrow_back-24px.svg'
 import EditButton from '../../assets/icons/edit-white-24px.svg'
+import './../InventoryItem/InventoryItem.scss'
 
 
 export default function InventoryItem() {
@@ -12,9 +14,9 @@ export default function InventoryItem() {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    const url = new URL(window.location.href); //Takes the url
-    const idFromUrl = url.pathname.split('/').pop(); //Split the url path and pops the id
-    setId(idFromUrl); //update id from url to the id in useState
+    const url = new URL(window.location.href); 
+    const idFromUrl = url.pathname.split('/').pop(); 
+    setId(idFromUrl);
   }, []);
 
   useEffect(() => {
@@ -34,15 +36,22 @@ export default function InventoryItem() {
   return (
     <div>
       <Header />
+      <div className="inventoryItems">
+      </div>
         <div className="inventory">
-
-         <div className="inventory__header">
-          <img className="inventory__arrowback" src={ArrowBack} alt="Arrow Back" />
-          <h2 className="inventory__name">{data.item_name}  <img className="inventory__circle" src={EditButton} alt="Edit Button" /></h2>
+        <Link to={`/warehouse/${id}`}>
+          <button className="inventory__arrowback"><img src={ArrowBack} alt="Arrow Back"/></button>
+          </Link>
+          <div className="inventory__header">
+          <h2 className="inventory__name">{data.item_name}
+          <Link to={`/inventory/edit/${id}`}>
+          <button className="inventory__circle"><img src={EditButton} alt="Edit Button Icon"/></button>
+          </Link>
+          </h2>
          </div>
-
+        
         <div className="inventory__orders">
-          <div className="inventory__QA inventory__QA--divi">
+          <div className="inventory__itemdiv inventory__itemdiv--line">
           <div className="inventory__items inventory__items--row1 ">
             <h4 className="inventory__itemstyle">ITEM DESCRIPTION: </h4>
             <p className="inventory__data">{data.description}</p>
@@ -77,14 +86,8 @@ export default function InventoryItem() {
           </div>
 
     </div>
+  )
+  <Footer className="inventory__footer"/>
   </div>
   );
 }
-
-
-
-
-  
-
-
-

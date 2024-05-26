@@ -49,14 +49,14 @@ export default function WarehouseInventoryList({
             <span className="warehouse-inventory__detail">{quantity}</span>
           </div>
           <div className="warehouse-inventory__actions">
-            <Link>
+           <Link to={`/warehouse/delete/${id}`}>
               <img
                 src={deleteIcon}
                 alt="Red garbage icon for delete button"
                 className="warehouse-inventory__delete"
               />
             </Link>
-            <Link>
+            <Link to={`/warehouse/edit/${id}`}>
               <img
                 src={editIcon}
                 alt="A blue pen icon for edit button"
