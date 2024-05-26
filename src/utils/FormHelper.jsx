@@ -30,19 +30,6 @@ export function TextInput({ label, labelClassName, className, ...props }) {
   );
 }
 
-// export function TextInput({ label, labelClassName, ...props }) {
-//   const [field, meta] = useField(props);
-//   return (
-//     <>
-//       <label htmlFor={props.name} className={labelClassName}>
-//         {label}
-//       </label>
-//       <input className="text-input" {...field} {...props} />
-//       {meta.touched && meta.error ? showError(meta) : null}
-//     </>
-//   );
-// }
-
 export function TextAreaInput({ label, labelClassName, className, ...props }) {
   const [field, meta] = useField(props);
   const inputClassName = [
@@ -75,15 +62,20 @@ export function RadioInput({ children, ...props }) {
   );
 }
 
-export function SelectInput({ label, labelClassName, ...props }) {
+export function SelectInput({ label, labelClassName,className, ...props }) {
   const [field, meta] = useField(props);
+  const inputClassName = [
+    "text-input",
+    meta.touched && meta.error ? "text-input--error" : "",
+    className,
+  ].join(" ");
   
   return (
     <div>
       <label htmlFor={props.name} className={labelClassName}>
         {label}
       </label>
-      <select {...field} {...props} />
+      <select {...field} {...props} className={inputClassName}/>
       {meta.touched && meta.error ? showError(meta) : null}
     </div>
   );
