@@ -78,11 +78,6 @@ export default function WarehousePage() {
             </h4>
             <h4 className="warehouse__list-title">
               Actions
-              <img
-                src={sortIcon}
-                alt="A sort icon"
-                className="warehouse__sort"
-              />
             </h4>
           </div>
 

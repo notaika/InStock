@@ -40,11 +40,9 @@ html, body {
 
             @include mixins.tablet {
                 flex-direction: row;
-                margin: 0 4px 16px 24px;
+                margin: 0 4px 0 24px;
                 border-bottom: none;
-                padding-top: 36px;
-                justify-content: center;
-                align-content: center;
+                padding: 24px 0;
 
             }
         }
@@ -76,13 +74,11 @@ html, body {
                 margin: 10px 0;
                 width: 20%;
                 font-size: 12px;
-                // margin-left: 40px;
                 white-space: nowrap;
 
                 &:last-child {
                     @include mixins.tablet {
                         text-align: center;
-                        // padding-right: 40px;
                     }
                     @include mixins.desktop {
                         padding: 0;
@@ -92,8 +88,12 @@ html, body {
 
             &-logo {
                 position: relative;
-                top: 6px;
+                bottom: 3px;
                 right: -5px;
+
+                @include mixins.tablet {
+                    top: 0;
+                }
             }
         }
         &-nav {
@@ -101,20 +101,24 @@ html, body {
             font-weight: 600;
             margin: 0;
             position: relative;
-            bottom: 10px;
+            display: flex;
         }
         &-functions {
             display: flex;
             justify-content: space-between;
-            margin: 0 24px 16px 24px;
+            padding: 0 24px 16px 24px;
+            border-bottom: 1px solid variables.$secondary-cloud;
 
             @include mixins.tablet {
                 position: relative;
                 left: 1%;
-                justify-content: flex-end;
+                flex-direction: row;
+                justify-content: center;
+                padding-bottom: 0;
+                border-bottom: none;
             }
             @include mixins.desktop {
-                left: -2%;
+                left: 1%;
             }
         }
         &-titles {
@@ -127,23 +131,52 @@ html, body {
         }
     }
     &__info {
-        width: 18%;
+        width: 20%;
         text-align: left;
         margin-left: 10px;
         overflow: visible;
+
+        &:last-child {
+            @include mixins.tablet {
+                width: 18%;
+            }
+        }
+        @include mixins.tablet {
+            display: flex;
+            align-items: center;
+        }
     }
     &__contact-information, &__address {
         @include mixins.tablet {
             position: relative;
-            bottom: 8px;
+            
         }
     }
     &__contact {
         &-name {
             margin-bottom: 9px;
+            @include mixins.tablet {
+                margin: 0;
+                padding-left: 4px;
+            }
         }
         &-information {
-            margin-left: 10px;
+            @include mixins.tablet{ 
+                overflow: visible;
+            }
+        }
+        &-container {
+            width: 20%;
+            text-align: left;
+            overflow: visible;
+
+            @include mixins.tablet {
+                margin: 0;
+                padding-left: 8px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
         }
     }
     &__address {
@@ -151,6 +184,7 @@ html, body {
 
         @include mixins.tablet {
             width: 20%;
+            padding-right: 1.5rem;
         }
         @include mixins.desktop {
             bottom: 0;
