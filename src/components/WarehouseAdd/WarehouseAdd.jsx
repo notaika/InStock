@@ -34,6 +34,7 @@ export default function WarehouseAdd() {
 
   return (
     <>
+    <Header/>
     <Formik
       initialValues={{
         warehouse_name: "",
@@ -163,6 +164,7 @@ export default function WarehouseAdd() {
       </Form>
     )}
   </Formik>
+  <Footer/>
 </>
 );
 }
