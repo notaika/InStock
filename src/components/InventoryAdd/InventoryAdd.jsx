@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "./InventoryAdd.scss";
-import {
-  TextInput,
-  TextAreaInput,
-  RadioInput,
-  SelectInput,
-} from "../../utils/FormHelper";
+import { TextInput, TextAreaInput,RadioInput, SelectInput } from "../../utils/FormHelper";
 import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { Link, useNavigate, useParams } from "react-router-dom";
+
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
@@ -63,7 +59,6 @@ export default function InventoryAdd({ addItem }) {
     "Accessories",
     "Health",
   ];
-  console.log(inventoryItem);
 
   return (
     <>
@@ -84,8 +79,7 @@ export default function InventoryAdd({ addItem }) {
           status: Yup.string().required(errorMessage),
           quantity: Yup.number().when("status", {
             is: "In Stock",
-            then: (schema) =>
-              schema.required(errorMessage).min(0).integer(),
+            then: (schema) => schema.required(errorMessage).min(0).integer(),
           }),
           warehouse_id: Yup.number().required(errorMessage),
         })}
@@ -101,7 +95,7 @@ export default function InventoryAdd({ addItem }) {
             console.error("Error creating or updating inventory item", error);
           } finally {
             setSubmitting(false);
-            navigate(`/inventory/${id}`);
+            addItem ? navigate(`/inventory`) : navigate(`/inventory/${id}`);
           }
         }}
       >
@@ -109,7 +103,7 @@ export default function InventoryAdd({ addItem }) {
           <Form className="inventory-add">
             <div className="inventory-add__header">
               <div className="inventory-add__title-wrapper">
-                <Link to="/inventory">
+                <Link to={addItem ? "/inventory" : `/inventory/${id}`}>
                   <img
                     src={arrowIcon}
                     alt="Back arrow"
@@ -207,7 +201,9 @@ export default function InventoryAdd({ addItem }) {
               <button
                 type="button"
                 className="inventory-add__button-item--left"
-                onClick={() => console.log("clicked")}
+                onClick={() =>
+                  addItem ? navigate("/inventory") : navigate(`/inventory/${id}`)
+                }
               >
                 Cancel
               </button>
