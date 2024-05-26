@@ -76,9 +76,7 @@ export default function WarehousePage() {
                 className="warehouse__sort"
               />
             </h4>
-            <h4 className="warehouse__list-title">
-              Actions
-            </h4>
+            <h4 className="warehouse__list-title">Actions</h4>
           </div>
 
           <section className="warehouse__container">
