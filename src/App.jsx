@@ -24,8 +24,8 @@ function App() {
       <Route path='/warehouse/delete/:id' element={<DeleteModal />}/>
       <Route path='/inventory' element={<InventoryPage />} />
       <Route path='/inventory/:id' element={<InventoryItem />} />
-      <Route path='/inventory/edit/:id' element={<InventoryEdit />} />
-      <Route path='/inventory/add' element={<InventoryAdd />} />
+      <Route path='/inventory/edit/:id' element={<InventoryAdd addItem={false} />} />
+      <Route path='/inventory/add' element={<InventoryAdd addItem={true}/>} />
       <Route path='/inventory/delete/:id' element={<InventoryDelete />} />
       <Route path='*' element={<NotFoundPage />} />
     </Routes>
