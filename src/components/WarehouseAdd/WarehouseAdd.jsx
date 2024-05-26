@@ -10,6 +10,8 @@ import Header from "../Header/Header";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function WarehouseAdd() {
+  const API_URL = import.meta.env.VITE_LOCALHOST;
+
   return (
     <div>
       <h1>Warehouse - Add</h1>
