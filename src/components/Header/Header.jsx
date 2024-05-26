@@ -7,7 +7,9 @@ function Header(){
     return(
         <div className="header">
             <div className="header__logo">
+                <Link to="/">
                 <img className="header__logo-size" src={Image} alt="Logo" />
+                </Link>
             </div>
             <ul className="header__list">
                 <li  className="header__menu"><Link to="/" className="header__decor">Warehouses</Link></li>
