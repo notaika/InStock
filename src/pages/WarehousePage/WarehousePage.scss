@@ -1,6 +1,10 @@
 @use '../../styles/partials/variables';
 @use '../../styles/partials/mixins';
 
+body {
+    background-color: variables.$bg-lightgrey;
+}
+
 .warehouse {
     position: absolute;
     top: 2em;
