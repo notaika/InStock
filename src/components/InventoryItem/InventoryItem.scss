@@ -102,15 +102,15 @@
       flex-direction: row;
       margin-top: 1.5em;
     }
-    &__QA{
-        width:600px;
+    &__itemdiv{
+        width:32.50em;
        
     }
     &__arrowback{
         top:7em;
         left:5em;
     }
-    &__QA--divi{ 
+    &__itedmdiv--line{ 
         border-right: 1px solid #BDC5D5;
     }
     &__itemstyle{
@@ -162,8 +162,8 @@
           flex-direction: row;
           margin-top: 1.5em;
        }
-       &__QA{
-        width:700px; 
+       &__itemdiv{
+        width:43.75em;
     }
     &__itemstyle{
         font-size: 0.9em;

@@ -51,7 +51,7 @@ export default function InventoryItem() {
          </div>
         
         <div className="inventory__orders">
-          <div className="inventory__QA inventory__QA--divi">
+          <div className="inventory__itemdiv inventory__itemdiv--line">
           <div className="inventory__items inventory__items--row1 ">
             <h4 className="inventory__itemstyle">ITEM DESCRIPTION: </h4>
             <p className="inventory__data">{data.description}</p>
