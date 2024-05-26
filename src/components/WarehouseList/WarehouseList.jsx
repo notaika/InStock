@@ -13,7 +13,7 @@ export default function WarehouseList ( { warehouse } ) {
           <div className="warehouse__list-container">
             <div className="warehouse__list--left">
               <h4 className="warehouse__list-title">Warehouse</h4>
-              <Link to={`/warehouse/${warehouse.id}`} className="warehouse__list-nav">
+              <Link to="/:id" className="warehouse__list-nav">
                 {warehouse.warehouse_name}
                 <img
                   src={chevronRight}
@@ -63,7 +63,7 @@ export default function WarehouseList ( { warehouse } ) {
             </Link>
             <p className="warehouse__address warehouse__info">{warehouse.address}, {warehouse.city}, {warehouse.country} </p>
             <p className="warehouse__contact-name warehouse__info">{warehouse.contact_name}</p>
-            <div className="warehouse__contact-container">
+            <div className="warehouse__contact-container warehouse__info">
               <p className="warehouse__contact-information">{warehouse.contact_phone}</p>
               <p className="warehouse__contact-information">{warehouse.contact_email}</p>
             </div>
