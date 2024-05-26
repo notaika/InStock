@@ -1,7 +1,173 @@
-.inventoryItems{
-    background-color: #f7f8f9;
-    margin-left: 2em;
-    margin-right:2em;
-    margin-top: -4em;
-    height: 100vh;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    // overflow: hidden;
+    height:auto;
+    
 }
+.inventory{
+    background-color: #f7f8f9;
+    margin: -4em 1em 0;
+    height: 60vh;
+
+&__header{
+    border-bottom: 1px solid #BDC5D5;
+}
+
+&__arrowback{
+        position: relative;
+        top: 2.3em;
+        left:1.5em;
+}
+
+&__name{
+    color:#13182C;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin: 0.2em 0 1.5em 2.4em;
+}
+
+&__circle{
+    background-color: #2E66E5;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    position: fixed;
+    right: 15%; 
+}
+    
+&__rows{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5em 0 0 8.5em;
+}
+&__items{
+   margin: 0.7em 2em;
+}
+&__itemstyle{
+    line-height: 2;
+    color:#5C667E;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 0.6em;
+}
+&__stock{
+    border-radius: 312em;
+    width:7em;
+    text-align: center;
+    font-size: 0.7em;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 0.6em;
+    text-transform: uppercase;
+}
+&__stock--instock{
+    color:#158463;
+    background-color: rgba(21, 36, 63, 0.07);
+}
+&__stock--nostock{
+    color:#C94515;
+    background-color: rgba(201, 69, 21, 0.07);
+}
+&__data{
+    color:#13182C;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 0.7em;
+}
+&__status{
+    display: flex;
+    justify-content:flex-start;
+}
+&__status &__items {
+    margin-right:2em; 
+}
+}
+
+
+@include tablet {
+.inventory{
+    margin: -7.1em 2em 0 2em;
+    height: 52vh;
+    border-radius: 0.19em;
+&__orders {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+    &__QA{
+        width:400px;
+       
+    }
+    &__QA--divi{ 
+        border-right: 1px solid #BDC5D5;
+    }
+    &__itemstyle{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 0.8em;
+    }
+    &__name{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 2em;
+    }
+    &__status &__items {
+        margin-right:4em; 
+        margin-bottom: 2em;
+    }
+    &__data{
+        text-wrap: balance;
+        margin-bottom: 2em;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 0.9em;
+    }
+    &__circle{
+        position: fixed;
+        right: 8%; 
+    }
+    &__stock{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 0.8em;
+    }
+   }
+}
+
+
+@include desktop {
+    .inventory{
+        margin: -7.1em 5.5em 0 5.5em;
+        height: 45vh;
+        border-radius: 0.19em;
+    &__orders {
+          display: flex;
+          flex-direction: row;
+          margin-top: 1em;
+          margin-bottom: 1em;
+       }
+       &__QA{
+        width:520px; 
+    }
+    &__status &__items {
+        margin-right:8em; 
+        margin-bottom: -0.2em;
+    }
+    &__circle{
+        position: fixed;
+        right: 17%; 
+    }
+    }
+}
+
+
+     
+
+
