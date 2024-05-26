@@ -1,7 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables";
- 
 
 *{
     box-sizing: border-box;
@@ -58,12 +57,8 @@
     text-decoration: none;
     color: #ffffff;
 }
-  
-  &__decor{
-    text-decoration: none;
-    color: #ffffff;
 }
-}
+
 
 
 @include tablet{

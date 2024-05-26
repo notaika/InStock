@@ -4,7 +4,6 @@
 body {
     background-color: variables.$bg-lightgrey;
 }
-
 .warehouse {
     position: absolute;
     top: 2em;
@@ -19,7 +18,7 @@ body {
         margin-top: 3.5rem;
     }
     @include mixins.desktop {
-        margin: 3.5rem 100px 0 100px;
+        margin: 3.5rem 6.25rem 0 6.25rem;
     }
     &__header {
         display: flex;
