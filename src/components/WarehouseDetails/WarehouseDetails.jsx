@@ -48,97 +48,105 @@ const WarehouseDetails = ({ id }) => {
   return (
     <>
       <Header />
-      <section className="warehouse-details">
-        <div className="warehouse-details__header">
-          <div className="warehouse-details__title-wrapper">
-            <Link to="/">
+      <div className="warehouse-details">
+        <section className="warehouse-details__container">
+          <div className="warehouse-details__header">
+            <div className="warehouse-details__title-wrapper">
+              <Link to="/">
+                <img
+                  src={arrowIcon}
+                  alt="back arrow icon"
+                  className="warehouse-details__icon"
+                />
+              </Link>
+              <h1 className="warehouse-details__title">
+                {warehouseDetails.warehouse_name}
+              </h1>
+            </div>
+            <Link to={`/warehouse/edit/${warehouseDetails.id}`}>
+                        <button className="warehouse-details__edit-button">
               <img
-                src={arrowIcon}
-                alt="back arrow icon"
-                className="warehouse-details__icon"
+                src={editIcon}
+                alt="edit-button icon"
+                className="warehouse-details__button-icon"
               />
+              <p className="warehouse-details__button-text">Edit</p>
+            </button>
             </Link>
-            <h1 className="warehouse-details__title">
-              {warehouseDetails.warehouse_name}
-            </h1>
+
           </div>
-          <button className="warehouse-details__edit-button">
-            <img
-              src={editIcon}
-              alt="edit-button icon"
-              className="warehouse-details__button-icon"
+          <div className="warehouse-details__divider"></div>
+          <div className="warehouse-details__address">
+            <div className="warehouse-details__address-container">
+              <div className="warehouse-details__address-header">
+                Warehouse Address:
+              </div>
+              <div className="warehouse-details__address-list--mobile">
+                <p>
+                  {warehouseDetails.address +
+                    ", " +
+                    warehouseDetails.city +
+                    ", " +
+                    warehouseDetails.country}
+                </p>
+              </div>
+              <ul className="warehouse-details__address-list--tablet">
+                <li>{warehouseDetails.address}</li>
+                <li>
+                  {warehouseDetails.city + ", " + warehouseDetails.country}
+                </li>
+              </ul>
+            </div>
+            <div className="warehouse-details__contact-container">
+              <ul className="warehouse-details__contact">
+                <li className="warehouse-details__contact-header">
+                  Contact Name:
+                </li>
+                <li>{warehouseDetails.contact_name}</li>
+                <li>{warehouseDetails.contact_position}</li>
+              </ul>
+              <ul className="warehouse-details__contact">
+                <li className="warehouse-details__contact-header">
+                  Contact Information
+                </li>
+                <li>{warehouseDetails.contact_phone}</li>
+                <li>{warehouseDetails.contact_email}</li>
+              </ul>
+            </div>
+          </div>
+          <div className="warehouse-list-tablet">
+            <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__inventory">
+              Inventory Item <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__category">
+              Category
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__status">
+              Status
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__quantity">
+              Qty
+              <img src={sortIcon} alt="Icon for sorting" />
+            </h2>
+            <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__actions">
+              Actions
+            </h2>
+          </div>
+          {warehouseInventory.map((item) => (
+            <WarehouseInventoryList
+              key={item.id}
+              name={item.item_name}
+              category={item.category}
+              status={item.status}
+              quantity={item.quantity}
+              id={item.id}
             />
-            <p className="warehouse-details__button-text">Edit</p>
-          </button>
-        </div>
-        <div className="warehouse-details__divider"></div>
-        <div className="warehouse-details__address">
-          <div className="warehouse-details__address-container">
-            <div className="warehouse-details__address-header">
-              Warehouse Address:
-            </div>
-            <div className="warehouse-details__address-list--mobile">
-              <p>
-                {warehouseDetails.address +
-                  ", " +
-                  warehouseDetails.city +
-                  ", " +
-                  warehouseDetails.country}
-              </p>
-            </div>
-            <ul className="warehouse-details__address-list--tablet">
-              <li>{warehouseDetails.address}</li>
-              <li>{warehouseDetails.city + ", " + warehouseDetails.country}</li>
-            </ul>
-          </div>
-          <div className="warehouse-details__contact-container">
-            <ul className="warehouse-details__contact">
-              <li className="warehouse-details__contact-header">
-                Contact Name:
-              </li>
-              <li>{warehouseDetails.contact_name}</li>
-              <li>{warehouseDetails.contact_position}</li>
-            </ul>
-            <ul className="warehouse-details__contact">
-              <li className="warehouse-details__contact-header">
-                Contact Information
-              </li>
-              <li>{warehouseDetails.contact_phone}</li>
-              <li>{warehouseDetails.contact_email}</li>
-            </ul>
-          </div>
-        </div>
-        <div className="warehouse-list-tablet">
-          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__inventory">
-            Inventory Item <img src={sortIcon} alt="Icon for sorting" />
-          </h2>
-          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__category">
-            Category
-            <img src={sortIcon} alt="Icon for sorting" />
-          </h2>
-          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__status">
-            Status
-            <img src={sortIcon} alt="Icon for sorting" />
-          </h2>
-          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__quantity">
-            Qty
-            <img src={sortIcon} alt="Icon for sorting" />
-          </h2>
-          <h2 className="warehouse-list-tablet__heading warehouse-list-tablet__actions">
-            Actions
-          </h2>
-        </div>
-        {warehouseInventory.map((item) => (
-          <WarehouseInventoryList
-            key={item.id}
-            name={item.item_name}
-            category={item.category}
-            status={item.status}
-            quantity={item.quantity}
-            id={item.id}
-          />
-        ))}
-      </section>
+          ))}
+        </section>
+      </div>
+
       <Footer />
     </>
   );
