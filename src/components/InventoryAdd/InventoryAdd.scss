@@ -1,0 +1,171 @@
+@use "../../styles/partials/variables";
+@use "../../styles/partials/mixins";
+
+.inventory-add {
+  margin-left: 2em;
+  margin-right:2em;
+  margin-top: -4em;
+  color: variables.$primary-black;
+  background-color: variables.$primary-white;
+  outline: none;
+  box-shadow: 0px 2px 5px 0px #13182C1A;
+
+  &__title-wrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid variables.$secondary-cloud;
+  }
+
+  &__header-icon {
+    padding-top: 6px;
+    padding-right: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__fields-container {
+    @include mixins.tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__left-container,
+  &__right-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include mixins.tablet {
+      width: 50%;
+    }
+  }
+
+  &__left-container {
+    border-bottom: 1px solid variables.$secondary-cloud;
+    padding-bottom: 1.5rem;
+
+    @include mixins.tablet {
+      border-bottom: none;
+      border-right: 1px solid variables.$secondary-cloud;
+    }
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+
+  &__label,
+  &__dropdown-label {
+    @include mixins.mobile-label;
+
+    @include mixins.tablet {
+      @include mixins.tablet-desktop-label;
+    }
+  }
+
+  &__input {
+    @include mixins.mobile-input;
+
+    @include mixins.tablet {
+      &--small {
+        width: 40%;
+      }
+    }
+  }
+
+  &__input-area {
+    @include mixins.mobile-input;
+    height: 6rem;
+    padding-top: 0.50rem;
+    resize: none;
+  }
+
+  &__dropdown-label {
+    display: flex;
+  }
+
+  &__dropdown-input {
+    @include mixins.mobile-input;
+    width: 100%;
+    color: variables.$secondary-slate;
+  }
+
+  &__radio-container {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+
+  &__radio-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5rem;
+    font-weight: 400;
+  }
+
+  &__radio-buttons > input {
+    color: red;
+   
+  }
+
+  &__radio-item > value {
+    color: red;
+    background-color: red;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-between;
+    padding: 1rem 0;
+    background-color: variables.$bg-lightgrey;
+
+    @include mixins.tablet {
+      justify-content: flex-end;
+      padding-right: 1rem;
+    }
+  }
+
+  &__button-item {
+    &--left {
+      @include mixins.mobile-button;
+      border: 0;
+      width: 40%;
+      background-color: white;
+      border: 1px solid variables.$secondary-cloud;
+
+      @include mixins.tablet {
+        margin-right: 1rem;
+        width: auto;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &--right {
+      @include mixins.mobile-button;
+      border: 0;
+      width: 40%;
+      background-color: variables.$primary-indigo;
+      color: variables.$primary-white;
+
+      @include mixins.tablet {
+        width: auto;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

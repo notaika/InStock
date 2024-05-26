@@ -1,6 +1,7 @@
-import React from 'react'
-import WarehouseDetails from '../WarehouseDetails/WarehouseDetails'
+import React from "react";
+import WarehouseDetails from "../WarehouseDetails/WarehouseDetails";
 import { useParams } from "react-router-dom";
+import WareHouseInventoryList from "../WarehouseInventoryList/WarehouseInventoryList";
 
 export default function WarehouseItem() {
   const { id } = useParams();
@@ -8,7 +9,7 @@ export default function WarehouseItem() {
 
   return (
     <div>
-      <WarehouseDetails id={id}/>
+      <WarehouseDetails id={id} />
     </div>
-  )
+  );
 }
