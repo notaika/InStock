@@ -118,8 +118,8 @@ a {
     @include mixins.tablet {
       flex-basis: 10%;
       gap: 1rem;
-      align-items: flex-end;
       max-width: 3.375rem;
+      justify-content: flex-end;
     }
   }
 
