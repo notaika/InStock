@@ -56,6 +56,9 @@ export default function WarehouseAdd() {
         phone_number: Yup.string().required("This field is required"),
         email: Yup.string().required("This field is required").email("Invalid email address"),
       })}
+
+      onSubmit={handleSubmit}
+
     >
     {({ values }) => (
       <Form className="warehouse-add">
@@ -151,6 +154,7 @@ export default function WarehouseAdd() {
 
         <div className="warehouse-add__button-container">
           <button type="button" className="warehouse-add__button-item--left"
+           onClick={handleCancel}
            >
             Cancel
           </button>
