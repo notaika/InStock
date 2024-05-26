@@ -11,12 +11,14 @@ import {
 } from "../../utils/FormHelper";
 import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import Header from "../Header/Header";
+import { Link, useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
 export default function InventoryAdd() {
   const [warehouseList, setWarehouseList] = useState([]);
+  const navigate = useNavigate();
 
   const getWarehouseList = async () => {
     try {
@@ -42,6 +44,7 @@ export default function InventoryAdd() {
 
   return (
     <>
+    < Header />
       <Formik
         initialValues={{
           item_name: "",
@@ -70,11 +73,11 @@ export default function InventoryAdd() {
               `${API_URL}/api/inventories`,
               values
             );
-            console.log(warehouseRequest);
           } catch (error) {
             console.error("Error creating a new inventory item", error);
           } finally {
             setSubmitting(false);
+            navigate("/inventory"); //TODO: Check if it's navigating to the right page with updated inventory
           }
         }}
       >

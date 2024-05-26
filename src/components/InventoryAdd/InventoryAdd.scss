@@ -2,7 +2,13 @@
 @use "../../styles/partials/mixins";
 
 .inventory-add {
-  margin: 1rem;
+  margin-left: 2em;
+  margin-right:2em;
+  margin-top: -4em;
+  color: variables.$primary-black;
+  background-color: variables.$primary-white;
+  outline: none;
+  box-shadow: 0px 2px 5px 0px #13182C1A;
 
   &__title-wrapper {
     display: flex;
@@ -34,23 +40,21 @@
     flex-direction: column;
     margin-bottom: 1.5rem;
     margin-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include mixins.tablet {
+      width: 50%;
+    }
   }
 
   &__left-container {
     border-bottom: 1px solid variables.$secondary-cloud;
+    padding-bottom: 1.5rem;
 
     @include mixins.tablet {
       border-bottom: none;
-      width: 50%;
       border-right: 1px solid variables.$secondary-cloud;
-      padding-right: 2rem;
-    }
-  }
-
-  &__right-container {
-    @include mixins.tablet {
-      width: 50%;
-      padding-left: 2rem;
     }
   }
 
