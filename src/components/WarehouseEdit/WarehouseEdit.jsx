@@ -13,6 +13,7 @@ const API_URL = import.meta.env.VITE_LOCALHOST;
 export default function WarehouseEdit() {
   const { id } = useParams();
   const navigate = useNavigate();
+  
   const [initialValues, setInitialValues] = useState({
     warehouse_name: "",
     address: "", 
@@ -85,7 +86,7 @@ export default function WarehouseEdit() {
         onSubmit={handleSubmit}
       >
         {({ values, setValues }) => (
-          <Form className="warehouse-edit"> {/* Updated class name */}
+          <Form className="warehouse-edit"> 
             <div className="warehouse-edit__header">
               <div className="warehouse-edit__header-box">
                 <Link to="/">
@@ -144,7 +145,7 @@ export default function WarehouseEdit() {
                 />
                 <TextInput
                   label="Position"
-                  name="contact_position" // Changed to match initialValues
+                  name="contact_position" 
                   type="text"
                   placeholder="Position"
                   className="warehouse-edit__input"
@@ -152,7 +153,7 @@ export default function WarehouseEdit() {
                 />
                 <TextInput
                   label="Phone Number"
-                  name="contact_phone" // Changed to match initialValues
+                  name="contact_phone" 
                   type="text"
                   placeholder="Phone Number"
                   className="warehouse-edit__input"
@@ -160,7 +161,7 @@ export default function WarehouseEdit() {
                 />
                 <TextInput
                   label="Email"
-                  name="contact_email" // Changed to match initialValues
+                  name="contact_email" 
                   type="text"
                   placeholder="Email"
                   className="warehouse-edit__input"
@@ -170,7 +171,8 @@ export default function WarehouseEdit() {
             </div>
 
             <div className="warehouse-edit__button-container">
-              <button type="button" className="warehouse-edit__button-item--left" onClick={handleCancel}>
+              <button type="button" className="warehouse-edit__button-item--left" 
+              onClick={handleCancel}>
                 Cancel
               </button>
               <button type="submit" className="warehouse-edit__button-item--right">
