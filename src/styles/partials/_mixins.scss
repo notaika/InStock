@@ -1,25 +1,57 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint){
-      @content;
-    }
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
   }
-  
-  @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-      @content;
-    }
-  }
+}
 
-  @mixin tablet-button {
-    height: 2.375rem; 
-    padding: 0 1rem; 
-    border-radius: 1.25rem;
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
   }
+}
 
-  @mixin mobile-button {
-    height: 2.25rem; 
-    padding: 0 1rem; 
-    border-radius: 1.25rem;
+@mixin tablet-button {
+  height: 2.375rem;
+  padding: 0 1rem;
+  border-radius: 1.25rem;
+}
+
+@mixin mobile-button {
+  height: 2.25rem;
+  padding: 0 1rem;
+  border-radius: 1.25rem;
+}
+
+//Form mixins start here
+
+@mixin mobile-label {
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  padding-bottom: 4px;
+  margin-top: 1rem;
+}
+
+@mixin tablet-desktop-label {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+}
+
+@mixin mobile-input {
+  border-radius: 20px;
+  height: 36px;
+  border: 1px solid $secondary-cloud;
+  outline: none;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  &:focus {
+    border: 1px solid $primary-indigo;
   }
+}
+
+@mixin tablet-desktop-input {
+  height: 38px;
+}
