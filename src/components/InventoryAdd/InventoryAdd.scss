@@ -10,6 +10,11 @@
   outline: none;
   box-shadow: 0px 2px 5px 0px #13182C1A;
 
+  &__wrapper {
+    background-color: variables.$bg-lightgrey;
+    padding-bottom: 1rem;
+  }
+
   &__title-wrapper {
     display: flex;
     align-items: flex-start;
