@@ -19,19 +19,17 @@
 
   @include mixins.tablet {
     margin-bottom: 0;
-    flex-basis: 20%;
   }
 }
 a {
   display: block;
 }
-.inventory-item {
+.warehouse-inventory {
   border-bottom: 1px solid variables.$secondary-cloud;
 
   &__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
     margin: 1rem 1.5rem 1.5rem 1.5rem;
 
     @include mixins.tablet {
@@ -70,17 +68,20 @@ a {
 
   &__name {
     @include card-half-width();
-    order: 1;
-  }
 
-  &__category {
-    @include card-half-width();
-    order: 2;
+    @include mixins.tablet{
+        order: 1;
+        width: 22%;
+    }
   }
 
   &__status {
     @include card-half-width();
-    order: 3;
+
+    @include mixins.tablet{
+        order: 3;
+        width: 27%;
+    }
   }
 
   &__instock {
@@ -97,16 +98,20 @@ a {
 
   &__quantity {
     @include card-half-width();
-    order: 4;
 
     @include mixins.tablet {
-      flex-basis: 10%;
+      width: 18%;
+      order: 4;
     }
   }
 
-  &__warehouse {
+  &__category {
     @include card-half-width();
-    order: 5;
+
+    @include mixins.tablet{
+        order: 2;
+        width: 20%;
+    }
   }
 
   &__actions {
@@ -116,10 +121,10 @@ a {
     order: 6;
 
     @include mixins.tablet {
-      flex-basis: 10%;
+      width: auto;
       gap: 1rem;
-      align-items: flex-end;
-      max-width: 3.375rem;
+    //   align-items: flex-end;
+      max-width: 4rem;
     }
   }
 

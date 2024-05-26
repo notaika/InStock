@@ -1,7 +1,187 @@
-.inventoryItems{
-    background-color: #f7f8f9;
-    margin-left: 2em;
-    margin-right:2em;
-    margin-top: -4em;
-    height: 100vh;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" ;
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    height:auto;  
+    overflow: hidden;
 }
+.inventory{
+    background-color: variables.$bg-lightgrey;
+    margin: -4em 1em 0;
+    height: 60vh;
+    border-radius: 0.19em;
+
+&__header{
+    border-bottom: 1px solid variables.$secondary-cloud;
+    margin-top: 2em;
+}
+
+&__arrowback{
+    border:transparent;
+    background-color: variables.$bg-lightgrey;
+    position: absolute;
+    top:11em;
+    left:3em;
+}
+
+&__name{
+    color:variables.$primary-black;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 1.9em;
+    margin: 0.2em 0 1.2em 2.4em;
+}
+
+&__circle{
+    background-color: variables.$primary-indigo;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    position: fixed;
+    right: 12%; 
+    top:20%;
+    border: transparent;
+}
+&__items{
+   margin: 0.7em 2em;
+}
+&__itemstyle{
+    line-height: 2;
+    color:variables.$secondary-slate;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 0.8em;
+}
+&__stock{
+    border-radius: 312em;
+    width:7em;
+    text-align: center;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+&__stock--instock{
+    color:variables.$green;
+    background-color: rgba(21, 36, 63, 0.07);
+}
+&__stock--nostock{
+    color:variables.$red;
+    background-color: rgba(201, 69, 21, 0.07);
+}
+&__data{
+    color:variables.$primary-black;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 0.9em;
+}
+&__status{
+    display: flex;
+    justify-content:flex-start;
+}
+&__status &__items {
+    margin-right:2em; 
+}
+&__footer{
+    position:fixed;
+    bottom: 2em;
+}
+}
+
+
+@include tablet {
+.inventory{
+    margin: -7.3em 2em 0 2em;
+    height: 48vh;
+&__orders {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1.5em;
+    }
+    &__itemdiv{
+        width:32.50em;
+       
+    }
+    &__arrowback{
+        top:7em;
+        left:5em;
+    }
+    &__itedmdiv--line{ 
+        border-right: 1px solid #BDC5D5;
+    }
+    &__itemstyle{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 0.8em;
+    }
+    &__name{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 2.3em;
+    }
+    &__status &__items {
+        // margin-right:12em; 
+        margin-bottom: 2em;
+    }
+    &__data{
+        text-wrap: balance;
+        margin-bottom: 2em;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 1em;
+    }
+    &__circle{
+        position: fixed;
+        right: 8%; 
+        top:14%;
+    }
+    &__stock{
+        font-family: $font-family;
+        font-weight: 600;
+        font-size: 0.8em;
+    }
+    &__footer{
+        margin-top: 10em;
+    }
+  }
+}
+
+
+
+@include desktop {
+    .inventory{
+        margin: -7.3em 5.5em 0 5.5em;
+        height: 45vh;
+        border-radius: 0.19em;
+    &__orders {
+          display: flex;
+          flex-direction: row;
+          margin-top: 1.5em;
+       }
+       &__itemdiv{
+        width:43.75em;
+    }
+    &__itemstyle{
+        font-size: 0.9em;
+    }
+    &__arrowback{
+        left:8.5em;
+    }
+    &__status &__items {
+        margin-right:12em; 
+        margin-bottom: -0.2em;
+    }
+    &__circle{
+        position: fixed;
+        right: 9%; 
+    }
+    &__footer{
+        margin-top: 24em;
+    }
+    }
+}
+
