@@ -48,10 +48,12 @@ export default function InventoryList({
           <span className="inventory-item__detail">{warehouse}</span>
         </div>
         <div className="inventory-item__actions">
-          <Link>
+        <Link to={`/inventory/delete/${id}`}>
+          {/* <Link > */}
             <img src={deleteIcon} alt="Red garbage icon for delete button" className="inventory-item__delete"/>
           </Link>
-          <Link>
+          <Link to={`/inventory/edit/${id}`}>
+          {/* <Link > */}
             <img src={editIcon} alt="A blue pen icon for edit button" className="inventory-item__edit"/>
           </Link>
         </div>
