@@ -5,20 +5,24 @@ body {
     background-color: variables.$bg-lightgrey;
 }
 .warehouse {
-    position: absolute;
-    top: 2em;
-    left: 2em;
-    right: 2em;
-    margin-top: 7.5em;
+    position: relative;
+    top: -10em;
+    margin: 0 2rem;
+    margin-top: 5.5em;
     box-shadow: rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem;
     background-color: white;
     border-radius: 0.125rem;
 
     @include mixins.tablet {
-        margin-top: 3.5rem;
+        max-width: 1020px;
+        margin: 5.5em auto 0 auto;
     }
-    @include mixins.desktop {
-        margin: 3.5rem 6.25rem 0 6.25rem;
+    &__article {
+        &-wrapper {
+            @include mixins.tablet {
+                margin: 0 2rem;
+            }
+        }
     }
     &__header {
         display: flex;
@@ -84,7 +88,7 @@ body {
                 padding: 0 1rem 0.1rem 1rem ;
             }
             @include mixins.desktop {
-                width: 55%;
+                width: 60%;
             }
         }
     }
@@ -92,16 +96,22 @@ body {
         &-titles {
             padding-left: 2.25rem;
         }
-        &-title {
+        &-address {
+            flex: 1.5;
+        }
+        &-warehouse {
+            flex: 1;
+        }
+        &-name {
+            flex: 1;
+        }
+        &-contact {
+            flex: 1;
+        }
+        &-actions {
             flex: 0.5;
-
-            @include mixins.tablet {
-                &:last-child {
-                    width: 3.125rem;
-                    flex: 0.43;
-                }
-            }
-          }
+            margin: 14px 36px 0 0;
+        }
     }
     &__container {
         background-color: white;
@@ -116,4 +126,3 @@ body {
         }
     }
 }
-

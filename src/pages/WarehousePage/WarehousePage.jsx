@@ -29,65 +29,67 @@ export default function WarehousePage() {
     <main className="home-page">
       <div className="warehouse__wrapper">
         <Header />
-        <article className="warehouse">
-          <div className="warehouse__header">
-            <h1 className="warehouse__title">Warehouses</h1>
-            <form className="warehouse__form">
-              <input
-                type="text"
-                className="warehouse__search-input"
-                placeholder="Search..."
-              />
-              <Link to="/warehouse/add" className="warehouse__search-btn">
-                + Add New Warehouse
-              </Link>
-            </form>
-          </div>
-          <div className="warehouse__list-titles">
-            <h4 className="warehouse__list-title">
-              Warehouse{" "}
-              <img
-                src={sortIcon}
-                alt="A sort icon"
-                className="warehouse__sort"
-              />
-            </h4>
-            <h4 className="warehouse__list-title">
-              Address
-              <img
-                src={sortIcon}
-                alt="A sort icon"
-                className="warehouse__sort"
-              />
-            </h4>
-            <h4 className="warehouse__list-title">
-              Contact Name
-              <img
-                src={sortIcon}
-                alt="A sort icon"
-                className="warehouse__sort"
-              />
-            </h4>
-            <h4 className="warehouse__list-title">
-              Contact Information
-              <img
-                src={sortIcon}
-                alt="A sort icon"
-                className="warehouse__sort"
-              />
-            </h4>
-            <h4 className="warehouse__list-title">Actions</h4>
-          </div>
-
-          <section className="warehouse__container">
-            <div className="warehouse__map">
-              {warehouses.map((warehouse) => (
-                <WarehouseList warehouse={warehouse} key={warehouse.id} />
-              ))}
+        <div className="warehouse__article-wrapper">
+          <article className="warehouse">
+            <div className="warehouse__header">
+              <h1 className="warehouse__title">Warehouses</h1>
+              <form className="warehouse__form">
+                <input
+                  type="text"
+                  className="warehouse__search-input"
+                  placeholder="Search..."
+                />
+                <Link to="/warehouse/add" className="warehouse__search-btn">
+                  + Add New Warehouse
+                </Link>
+              </form>
             </div>
-          </section>
-        </article>
+            <div className="warehouse__list-titles">
+              <h4 className="warehouse__list-title warehouse__list-warehouse">
+                Warehouse
+                <img
+                  src={sortIcon}
+                  alt="A sort icon"
+                  className="warehouse__sort"
+                />
+              </h4>
+              <h4 className="warehouse__list-title warehouse__list-address">
+                Address
+                <img
+                  src={sortIcon}
+                  alt="A sort icon"
+                  className="warehouse__sort"
+                />
+              </h4>
+              <h4 className="warehouse__list-title warehouse__list-name">
+                Contact Name
+                <img
+                  src={sortIcon}
+                  alt="A sort icon"
+                  className="warehouse__sort"
+                />
+              </h4>
+              <h4 className="warehouse__list-title warehouse__list-contact">
+                Contact Information
+                <img
+                  src={sortIcon}
+                  alt="A sort icon"
+                  className="warehouse__sort"
+                />
+              </h4>
+              <h4 className="warehouse__list-title warehouse__list-actions">Actions</h4>
+            </div>
+            <section className="warehouse__container">
+              <div className="warehouse__map">
+                {warehouses.map((warehouse) => (
+                  <WarehouseList warehouse={warehouse} key={warehouse.id} />
+                ))}
+              </div>
+            </section>
+          </article>
+        </div>
       </div>
+      <Footer />
     </main>
   );
 }
