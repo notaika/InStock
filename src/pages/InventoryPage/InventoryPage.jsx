@@ -3,6 +3,7 @@ import axios from "axios";
 import "./InventoryPage.scss";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+import { Link } from "react-router-dom";
 
 export default function InventoryPage() {
   const [inventory, setInventory] = useState([]);
@@ -32,7 +33,9 @@ export default function InventoryPage() {
               placeholder="Search..."
               className="inventory-header__search"
             />
-            <button className="inventory-header__button">+ Add New Item</button>
+            <Link to="/inventory/add">
+              <button className="inventory-header__button">+ Add New Item</button>
+            </Link>
           </div>
         </div>
         <div>

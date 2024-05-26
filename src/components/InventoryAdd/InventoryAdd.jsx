@@ -1,24 +1,33 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "./InventoryAdd.scss";
-import {
-  TextInput,
-  TextAreaInput,
-  RadioInput,
-  SelectInput,
-} from "../../utils/FormHelper";
+import { TextInput, TextAreaInput,RadioInput, SelectInput } from "../../utils/FormHelper";
 import arrowIcon from "../../assets/icons/arrow_back-24px.svg";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import { Link, useNavigate } from "react-router-dom";
+
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
-export default function InventoryAdd() {
+export default function InventoryAdd({ addItem }) {
+  const { id } = useParams();
+  const [inventoryItem, setInventoryItem] = useState();
   const [warehouseList, setWarehouseList] = useState([]);
   const navigate = useNavigate();
+
+  const getInventoryItem = async () => {
+    try {
+      const inventoryRequest = await axios.get(
+        `${API_URL}/api/inventories/${id}`
+      );
+      setInventoryItem(inventoryRequest.data);
+    } catch (error) {
+      console.error("Error retrieving inventory item", error);
+    }
+  };
 
   const getWarehouseList = async () => {
     try {
@@ -31,7 +40,16 @@ export default function InventoryAdd() {
 
   useEffect(() => {
     getWarehouseList();
+    !addItem && getInventoryItem();
   }, []);
+
+  if (!warehouseList) {
+    return <div className="loader">loading...</div>;
+  }
+
+  if (!addItem && !inventoryItem) {
+    return <div className="loader">loading..</div>;
+  }
 
   const errorMessage = "This field is required";
   const categories = [
@@ -44,15 +62,15 @@ export default function InventoryAdd() {
 
   return (
     <>
-    < Header />
+      <Header />
       <Formik
         initialValues={{
-          item_name: "",
-          description: "",
-          category: "",
-          status: "In Stock",
-          quantity: "",
-          warehouse_id: "",
+          item_name: addItem ? "" : inventoryItem.item_name,
+          description: addItem ? "" : inventoryItem.description,
+          category: addItem ? "" : inventoryItem.category,
+          status: addItem ? "In Stock" : inventoryItem.status,
+          quantity: addItem ? "0" : inventoryItem.quantity,
+          warehouse_id: addItem ? "" : inventoryItem.warehouse_id, //TODO: set warehouse
         }}
         validationSchema={Yup.object({
           item_name: Yup.string().required(errorMessage),
@@ -61,23 +79,23 @@ export default function InventoryAdd() {
           status: Yup.string().required(errorMessage),
           quantity: Yup.number().when("status", {
             is: "In Stock",
-            then: (schema) =>
-              schema.required(errorMessage).positive().integer(),
+            then: (schema) => schema.required(errorMessage).min(0).integer(),
           }),
           warehouse_id: Yup.number().required(errorMessage),
         })}
         onSubmit={async (values, { setSubmitting }) => {
           console.log(values);
           try {
-            const warehouseRequest = await axios.post(
-              `${API_URL}/api/inventories`,
-              values
-            );
+            if (addItem) {
+              await axios.post(`${API_URL}/api/inventories`, values);
+            } else {
+              await axios.put(`${API_URL}/api/inventories/${id}`, values);
+            }
           } catch (error) {
-            console.error("Error creating a new inventory item", error);
+            console.error("Error creating or updating inventory item", error);
           } finally {
             setSubmitting(false);
-            navigate("/inventory"); //TODO: Check if it's navigating to the right page with updated inventory
+            addItem ? navigate(`/inventory`) : navigate(`/inventory/${id}`);
           }
         }}
       >
@@ -85,14 +103,16 @@ export default function InventoryAdd() {
           <Form className="inventory-add">
             <div className="inventory-add__header">
               <div className="inventory-add__title-wrapper">
-                <Link to="/inventory">
-                <img
-                  src={arrowIcon}
-                  alt="Back arrow"
-                  className="inventory-add__header-icon"
-                />
-                </ Link>
-                <h1 className="inventory-add__title">Add New Inventory Item</h1>
+                <Link to={addItem ? "/inventory" : `/inventory/${id}`}>
+                  <img
+                    src={arrowIcon}
+                    alt="Back arrow"
+                    className="inventory-add__header-icon"
+                  />
+                </Link>
+                <h1 className="inventory-add__title">
+                  {addItem ? "Add New Inventory Item" : "Edit Inventory Item"}
+                </h1>
               </div>
             </div>
 
@@ -128,7 +148,6 @@ export default function InventoryAdd() {
                       {category}
                     </option>
                   ))}
-
                 </SelectInput>
               </div>
 
@@ -138,22 +157,26 @@ export default function InventoryAdd() {
                 <div className="inventory-add__radio-container">
                   Status
                   <div className="inventory-add__radio-buttons">
-                    <RadioInput name="status" value="In Stock" className="inventory-add__radio-item">
+                    <RadioInput
+                      name="status"
+                      value="In Stock"
+                      className="inventory-add__radio-item"
+                    >
                       In Stock
                     </RadioInput>
-                    <RadioInput name="status" value="Out Of Stock">
-                      Out Of Stock
+                    <RadioInput name="status" value="Out of Stock">
+                      Out of Stock
                     </RadioInput>
                   </div>
                 </div>
 
-                {values.status !== "Out Of Stock" && (
+                {values.status !== "Out of Stock" && (
                   <TextInput
                     label="Quantity"
                     name="quantity"
                     type="text"
                     placeholder="0"
-                    className="inventory-add__input inventory-add__input--small"
+                    className="inventory-add__input"
                     labelClassName="inventory-add__label"
                   />
                 )}
@@ -175,16 +198,21 @@ export default function InventoryAdd() {
             </div>
 
             <div className="inventory-add__button-container">
-              <button type="button" className="inventory-add__button-item--left"
-              onClick={() => console.log('clicked')}
-               >
+              <button
+                type="button"
+                className="inventory-add__button-item--left"
+                onClick={() =>
+                  addItem ? navigate("/inventory") : navigate(`/inventory/${id}`)
+                }
+              >
                 Cancel
               </button>
               <button
                 type="submit"
                 className="inventory-add__button-item--right"
               >
-                + Add Item
+                {" "}
+                {addItem ? "+ Add Item" : "Save"}
               </button>
             </div>
           </Form>
