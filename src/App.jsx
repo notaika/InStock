@@ -6,7 +6,7 @@ import WarehouseEdit from './components/WarehouseEdit/WarehouseEdit';
 import WarehouseItem from './components/WarehouseItem/WarehouseItem';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import InventoryAdd from './components/InventoryAdd/InventoryAdd';
-import InventoryDelete from './components/InventoryDelete/InventoryDelete';
+import DeleteInventoryModal from './components/DeleteInventoryModal/DeleteInventoryModal'
 import InventoryItem from './components/InventoryItem/InventoryItem';
 import InventoryEdit from './components/InventoryEdit/InventoryEdit';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
@@ -26,7 +26,7 @@ function App() {
       <Route path='/inventory/:id' element={<InventoryItem />} />
       <Route path='/inventory/edit/:id' element={<InventoryEdit />} />
       <Route path='/inventory/add' element={<InventoryAdd />} />
-      <Route path='/inventory/delete/:id' element={<InventoryDelete />} />
+      <Route path='/inventory/delete/:id' element={<DeleteInventoryModal />} />
       <Route path='*' element={<NotFoundPage />} />
     </Routes>
     </BrowserRouter>
