@@ -24,6 +24,7 @@
 
             @include mixins.tablet {
                 display: contents;
+                max-width: 1020px;
             }
         }
         &-item {
