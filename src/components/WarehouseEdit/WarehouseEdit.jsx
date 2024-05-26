@@ -27,7 +27,7 @@ export default function WarehouseEdit() {
   useEffect(() => {
     async function getWarehouseDetails() {
       try {
-        const response = await axios.get(`http://localhost:8080/api/warehouses/3`);
+        const response = await axios.get(`${API_URL}/api/warehouses/${id}`);
         const warehouseData = response.data;
 
         setInitialValues({
@@ -50,7 +50,7 @@ export default function WarehouseEdit() {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.put(`http://localhost:8080/api/warehouses/3`, values); 
+      const response = await axios.put(`${API_URL}/api/warehouses/${id}`, values); 
       console.log(response.data);
       alert("Updated warehouse details successfully!");
       navigate("/"); 
@@ -108,7 +108,7 @@ export default function WarehouseEdit() {
                 />
                 <TextInput
                   label="Street Address"
-                  name="address" // Changed to match initialValues
+                  name="address" 
                   type="text"
                   placeholder="Street Address"
                   className="warehouse-edit__input"
