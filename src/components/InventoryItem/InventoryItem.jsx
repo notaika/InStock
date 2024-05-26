@@ -52,12 +52,12 @@ export default function InventoryItem() {
         
         <div className="inventory__orders">
           <div className="inventory__itemdiv inventory__itemdiv--line">
-          <div className="inventory__items inventory__items--row1 ">
+          <div className="inventory__items">
             <h4 className="inventory__itemstyle">ITEM DESCRIPTION: </h4>
             <p className="inventory__data">{data.description}</p>
           </div>
 
-          <div className="inventory__items inventory__items--row2">
+          <div className="inventory__items">
             <h4 className="inventory__itemstyle">CATEGORY:</h4>
             <p className="inventory__data">{data.category}</p>
           </div>
@@ -65,19 +65,19 @@ export default function InventoryItem() {
          <div>
           <div className="inventory__status">
             <div className="inventory__items">
-                <h4 className="inventory__itemstyle inventory__items--row3">STATUS:</h4>
+                <h4 className="inventory__itemstyle">STATUS:</h4>
                 {data.status === "In Stock" ? 
                 (<p className="inventory__stock inventory__stock--instock">{data.status}</p>) : 
                 (<p className="inventory__stock inventory__stock--nostock">{data.status}</p>)}
             </div>
-            <div className="inventory__items inventory__items--row4">
+            <div className="inventory__items">
                 <h4 className="inventory__itemstyle">QUANTITY:</h4>
                 <p className="inventory__data">{data.quantity}</p>
             </div>
           </div>
 
 
-          <div className="inventory__items inventory__items--row5">
+          <div className="inventory__items">
             <h4 className="inventory__itemstyle">WAREHOUSE:</h4>
             <p className="inventory__data">{data.warehouse_name}</p>
           </div>
