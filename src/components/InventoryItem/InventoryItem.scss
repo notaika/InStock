@@ -95,22 +95,27 @@
 
 @include tablet {
 .inventory{
-    margin: -7.3em 2em 0 2em;
-    height: 48vh;
-&__orders {
+    margin: -5em 2em 0 2em;
+    height: 55vh;
+    &__orders {
       display: flex;
       flex-direction: row;
       margin-top: 1.5em;
     }
+    &__header{
+        margin-top:-0.3em; //Line
+    }
+    &__name{
+        margin: 1.3em 0 1.2em 2.4em;
+    }
     &__itemdiv{
-        width:32.50em;
-       
+        width:32.50em; 
     }
     &__arrowback{
-        top:7em;
+        top:9.5em;
         left:5em;
     }
-    &__itedmdiv--line{ 
+    &__itemdiv--line{ 
         border-right: 1px solid #BDC5D5;
     }
     &__itemstyle{
@@ -124,8 +129,8 @@
         font-size: 2.3em;
     }
     &__status &__items {
-        // margin-right:12em; 
         margin-bottom: 2em;
+        margin-right:5em; 
     }
     &__data{
         text-wrap: balance;
@@ -137,7 +142,7 @@
     &__circle{
         position: fixed;
         right: 8%; 
-        top:14%;
+        top:18%;
     }
     &__stock{
         font-family: $font-family;
@@ -154,7 +159,7 @@
 
 @include desktop {
     .inventory{
-        margin: -7.3em 5.5em 0 5.5em;
+        margin: -5.5em 5.5em 0 5.5em;
         height: 45vh;
         border-radius: 0.19em;
     &__orders {
