@@ -17,21 +17,21 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 const API_URL = import.meta.env.VITE_LOCALHOST;
 
 export default function InventoryAdd({ addItem }) {
-  const { id } = useParams(); 
+  const { id } = useParams();
   const [inventoryItem, setInventoryItem] = useState();
   const [warehouseList, setWarehouseList] = useState([]);
   const navigate = useNavigate();
 
-  const getInventoryItem = async() => {
+  const getInventoryItem = async () => {
     try {
-      const inventoryRequest = await axios.get(`${API_URL}/api/inventories/${id}`);
+      const inventoryRequest = await axios.get(
+        `${API_URL}/api/inventories/${id}`
+      );
       setInventoryItem(inventoryRequest.data);
     } catch (error) {
       console.error("Error retrieving inventory item", error);
     }
-  }
-
-  console.log(inventoryItem);
+  };
 
   const getWarehouseList = async () => {
     try {
@@ -47,12 +47,12 @@ export default function InventoryAdd({ addItem }) {
     !addItem && getInventoryItem();
   }, []);
 
-  if(!warehouseList) {
-    return <div className="loader">loading...</div>
+  if (!warehouseList) {
+    return <div className="loader">loading...</div>;
   }
 
-  if(!addItem && !inventoryItem) {
-    return <div className="loader">loading..</div>
+  if (!addItem && !inventoryItem) {
+    return <div className="loader">loading..</div>;
   }
 
   const errorMessage = "This field is required";
@@ -63,18 +63,19 @@ export default function InventoryAdd({ addItem }) {
     "Accessories",
     "Health",
   ];
+  console.log(inventoryItem);
 
   return (
     <>
-    < Header />
+      <Header />
       <Formik
         initialValues={{
-          item_name: addItem ? "" : inventoryItem[0].item_name,
-          description: addItem ? "" : inventoryItem[0].description,
-          category: addItem ? "" : inventoryItem[0].category,
-          status: addItem ? "In Stock" : inventoryItem[0].status, //inventoryItem[0].status,
-          quantity: addItem ? "1" : inventoryItem[0].quantity, //TODO: fix api to allow 0 quantity
-          warehouse_id: addItem ? "" : inventoryItem[0].warehouse_id //TODO: set warehouse 
+          item_name: addItem ? "" : inventoryItem.item_name,
+          description: addItem ? "" : inventoryItem.description,
+          category: addItem ? "" : inventoryItem.category,
+          status: addItem ? "In Stock" : inventoryItem.status,
+          quantity: addItem ? "0" : inventoryItem.quantity,
+          warehouse_id: addItem ? "" : inventoryItem.warehouse_id, //TODO: set warehouse
         }}
         validationSchema={Yup.object({
           item_name: Yup.string().required(errorMessage),
@@ -84,7 +85,7 @@ export default function InventoryAdd({ addItem }) {
           quantity: Yup.number().when("status", {
             is: "In Stock",
             then: (schema) =>
-              schema.required(errorMessage).positive().integer(),
+              schema.required(errorMessage).min(0).integer(),
           }),
           warehouse_id: Yup.number().required(errorMessage),
         })}
@@ -95,7 +96,7 @@ export default function InventoryAdd({ addItem }) {
               await axios.post(`${API_URL}/api/inventories`, values);
             } else {
               await axios.put(`${API_URL}/api/inventories/${id}`, values);
-          }
+            }
           } catch (error) {
             console.error("Error creating or updating inventory item", error);
           } finally {
@@ -109,13 +110,15 @@ export default function InventoryAdd({ addItem }) {
             <div className="inventory-add__header">
               <div className="inventory-add__title-wrapper">
                 <Link to="/inventory">
-                <img
-                  src={arrowIcon}
-                  alt="Back arrow"
-                  className="inventory-add__header-icon"
-                />
-                </ Link>
-                <h1 className="inventory-add__title">{ addItem ? "Add New Inventory Item" : "Edit Inventory Item" }</h1>
+                  <img
+                    src={arrowIcon}
+                    alt="Back arrow"
+                    className="inventory-add__header-icon"
+                  />
+                </Link>
+                <h1 className="inventory-add__title">
+                  {addItem ? "Add New Inventory Item" : "Edit Inventory Item"}
+                </h1>
               </div>
             </div>
 
@@ -126,7 +129,6 @@ export default function InventoryAdd({ addItem }) {
                   label="Item Name"
                   name="item_name"
                   type="text"
-                  
                   placeholder="Item Name"
                   className="inventory-add__input"
                   labelClassName="inventory-add__label"
@@ -152,7 +154,6 @@ export default function InventoryAdd({ addItem }) {
                       {category}
                     </option>
                   ))}
-
                 </SelectInput>
               </div>
 
@@ -162,22 +163,26 @@ export default function InventoryAdd({ addItem }) {
                 <div className="inventory-add__radio-container">
                   Status
                   <div className="inventory-add__radio-buttons">
-                    <RadioInput name="status" value="In Stock" className="inventory-add__radio-item">
+                    <RadioInput
+                      name="status"
+                      value="In Stock"
+                      className="inventory-add__radio-item"
+                    >
                       In Stock
                     </RadioInput>
-                    <RadioInput name="status" value="Out Of Stock">
-                      Out Of Stock
+                    <RadioInput name="status" value="Out of Stock">
+                      Out of Stock
                     </RadioInput>
                   </div>
                 </div>
 
-                {values.status !== "Out Of Stock" && (
+                {values.status !== "Out of Stock" && (
                   <TextInput
                     label="Quantity"
                     name="quantity"
                     type="text"
                     placeholder="0"
-                    className="inventory-add__input inventory-add__input--small"
+                    className="inventory-add__input"
                     labelClassName="inventory-add__label"
                   />
                 )}
@@ -199,16 +204,19 @@ export default function InventoryAdd({ addItem }) {
             </div>
 
             <div className="inventory-add__button-container">
-              <button type="button" className="inventory-add__button-item--left"
-              onClick={() => console.log('clicked')}
-               >
+              <button
+                type="button"
+                className="inventory-add__button-item--left"
+                onClick={() => console.log("clicked")}
+              >
                 Cancel
               </button>
               <button
                 type="submit"
                 className="inventory-add__button-item--right"
-              > { addItem ? "+ Add Item" : "Save" }
-                
+              >
+                {" "}
+                {addItem ? "+ Add Item" : "Save"}
               </button>
             </div>
           </Form>
