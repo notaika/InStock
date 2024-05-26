@@ -2,10 +2,10 @@
 @use '../../styles/partials/mixins';
 
 *, p {
-    font-size: 13px;
+    font-size: 0.8125rem;
 
     @include mixins.tablet {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
@@ -25,7 +25,7 @@ html, body {
             }
         }
         &-content {
-            border-bottom: 1px solid variables.$secondary-cloud;
+            border-bottom: 0.0625rem solid variables.$secondary-cloud;
         }
         &--tablet {
             display: none;
@@ -40,20 +40,20 @@ html, body {
 
             @include mixins.tablet {
                 flex-direction: row;
-                margin: 0 4px 0 24px;
+                margin: 0 0.25rem 0 1.5rem;
                 border-bottom: none;
-                padding: 24px 0;
+                padding: 1.5rem 0;
 
             }
         }
         &-delete, &-edit {
-            width: 24px;
-            height: 24px;
-            margin-right: 16px;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 1rem;
         }
         &-container {
             display: flex;
-            margin: 16px 0px 16px 0px;
+            margin: 1rem 0rem 1rem 0rem;
         }
         &--left, &--right {
             display: flex;
@@ -61,19 +61,19 @@ html, body {
             width: 50%;
         }
         &--left {
-            margin-left: 24px;
+            margin-left: 1.5rem;
             width: 50%;
         }
         &-title {
             color: variables.$secondary-slate;
             text-transform: uppercase;
             font-weight: 600;
-            margin: 8px 0 4px 0;
+            margin: 0.5rem 0 0.25rem 0;
 
             @include mixins.tablet {
-                margin: 10px 0;
+                margin: 0.625rem 0;
                 width: 20%;
-                font-size: 12px;
+                font-size: 0.75rem;
                 white-space: nowrap;
 
                 &:last-child {
@@ -88,8 +88,8 @@ html, body {
 
             &-logo {
                 position: relative;
-                bottom: 3px;
-                right: -5px;
+                bottom: 0.1875rem;
+                right: -0.3125rem;
 
                 @include mixins.tablet {
                     top: 0;
@@ -107,8 +107,8 @@ html, body {
         &-functions {
             display: flex;
             justify-content: space-between;
-            padding: 0 24px 16px 24px;
-            border-bottom: 1px solid variables.$secondary-cloud;
+            padding: 0 1.5rem 1rem 1.5rem;
+            border-bottom: 0.0625rem solid variables.$secondary-cloud;
 
             @include mixins.tablet {
                 position: relative;
@@ -134,7 +134,7 @@ html, body {
     &__info {
         width: 20%;
         text-align: left;
-        margin-left: 10px;
+        margin-left: 0.625rem;
         overflow: visible;
 
         &:last-child {
@@ -155,10 +155,10 @@ html, body {
     }
     &__contact {
         &-name {
-            margin-bottom: 9px;
+            margin-bottom: 0.5625rem;
             @include mixins.tablet {
                 margin: 0;
-                padding-left: 4px;
+                padding-left: 0.25rem;
             }
         }
         &-information {
@@ -173,7 +173,7 @@ html, body {
 
             @include mixins.tablet {
                 margin: 0;
-                padding-left: 8px;
+                padding-left: 0.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
