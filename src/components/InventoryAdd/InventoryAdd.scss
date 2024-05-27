@@ -9,18 +9,29 @@
   background-color: variables.$primary-white;
   outline: none;
   box-shadow: 0px 2px 5px 0px #13182C1A;
-
+  border-radius: 0.188rem;
+  @include mixins.desktop{
+    margin:0 5rem;
+    margin-top: -6em;
+  }
   &__title-wrapper {
     display: flex;
     align-items: flex-start;
     margin-top: 1rem;
     padding-bottom: 1rem;
+    padding: 1.5rem 1rem;
     border-bottom: 1px solid variables.$secondary-cloud;
+    @include mixins.tablet{
+      padding: 1.5rem;
+    }
+    @include mixins.desktop{
+      padding:2.188rem;
+    }
   }
 
   &__header-icon {
-    padding-top: 6px;
-    padding-right: 4px;
+    padding-top: 0.375rem;
+    padding-right: 0.25rem;
 
     &:hover {
       cursor: pointer;
@@ -45,6 +56,11 @@
 
     @include mixins.tablet {
       width: 50%;
+      padding:0 1.5rem;
+      margin-top:1.5rem;
+    }
+    @include mixins.desktop{
+      padding:0rem 2.188rem;
     }
   }
 
@@ -59,8 +75,8 @@
   }
 
   &__subtitle {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
     font-weight: 600;
   }
 
@@ -132,6 +148,10 @@
     @include mixins.tablet {
       justify-content: flex-end;
       padding-right: 1rem;
+    }
+
+    @include mixins.desktop{
+      padding: 1rem 2.188rem;
     }
   }
 
