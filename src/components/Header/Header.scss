@@ -8,7 +8,7 @@
     padding:0;
 }
 .header {
-    height: 200px;
+    height: 12.5rem;
     background-color: variables.$bg-graphite;
     display: flex;
     flex-direction: column;
@@ -19,7 +19,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-        height: 160px;
+        height: 10rem;
         max-width: 1020px;;
         margin: 0 auto;
         padding: 2rem 0;
@@ -30,7 +30,7 @@
     }
     &__logo {
         &-size {
-            height: 28px;
+            height: 1.75rem;
             margin-bottom: 1rem;
 
             @include mixins.tablet {
@@ -60,7 +60,7 @@
     &__decor {
         color: white;
         padding: 0.5rem;
-        border-radius: 20px;
+        border-radius: 1.25rem;
 
         &:hover {
             background-color: variables.$primary-black;
@@ -70,5 +70,5 @@
 
 .active {
     background-color: variables.$primary-black;
-    border-radius: 20px;
+    border-radius: 1.25rem;
 }

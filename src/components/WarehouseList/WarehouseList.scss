@@ -1,14 +1,6 @@
 @use '../../styles/partials/variables';
 @use '../../styles/partials/mixins';
 
-*, p {
-    font-size: 0.8125rem;
-
-    @include mixins.tablet {
-        font-size: 0.875rem;
-    }
-}
-
 html, body {
     overflow: auto;
     height: 100%;
@@ -42,10 +34,14 @@ html, body {
 
             @include mixins.tablet {
                 flex-direction: row;
-                margin: 0 0.25rem 0 1.5rem;
                 border-bottom: none;
-                padding: 1.5rem 0;
+                padding: 1.5rem 0.25rem 1.5rem 1.5rem;
 
+            }
+            @include mixins.desktop {
+                &:hover {
+                    background-color: #2e65e510;
+                }
             }
         }
         &-delete, &-edit {
@@ -105,8 +101,12 @@ html, body {
             position: relative;
             display: flex;
             color: variables.$primary-indigo;
+
+            &:hover {
+                text-decoration: underline;
+            }
             @include mixins.tablet {
-                flex: 1;
+                width: 20%;
             }
         }
         &-functions {
@@ -122,7 +122,7 @@ html, body {
                 justify-content: center;
                 padding-bottom: 0;
                 border-bottom: none;
-                flex: 0.5;
+                flex: 1;
             }
         }
         &-titles {
@@ -152,15 +152,21 @@ html, body {
     }
     &__address {
         @include mixins.tablet {
-            flex: 1.5;
+            width: 20%;
+        }
+        @include mixins.desktop {
+            width: 25%;
         }
     }
     &__contact {
         &-name {
-            margin-bottom: 0.5625rem;
             @include mixins.tablet {
-                margin: 0;
-                flex: 1;
+                margin-left: 1.2rem;
+                width: 20%;
+            }
+            @include mixins.desktop {
+                margin-left: 0.5rem;
+                width: 15%;
             }
         }
         &-information {
@@ -170,28 +176,17 @@ html, body {
             }
         }
         &-container {
-            flex: 1;
+            width: 20%;
             text-align: left;
             overflow: visible;
 
             @include mixins.tablet {
                 margin: 0;
-                padding-left: 0.5rem;
+                padding-left: 1rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
             }
-        }
-    }
-    &__address {
-        width: 80%;
-
-        @include mixins.tablet {
-            width: 20%;
-            padding-right: 1.5rem;
-        }
-        @include mixins.desktop {
-            bottom: 0;
         }
     }
 }
