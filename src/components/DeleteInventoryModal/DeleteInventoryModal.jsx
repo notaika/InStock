@@ -33,7 +33,7 @@ export default function InventoryDeleteModal() {
     const deleteInventory = async () => {
         try {
             await axios.delete(`${import.meta.env.VITE_LOCALHOST}/api/inventories/${id}`);
-            navigate('/')
+            navigate('/inventory')
         } catch (error) {
             console.log(`ERROR: Unable to delete warehouse with given ID`, error)
         }

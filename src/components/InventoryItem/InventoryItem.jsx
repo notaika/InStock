@@ -25,7 +25,6 @@ export default function InventoryItem() {
           `http://localhost:8080/api/inventories/${id}`
         );
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

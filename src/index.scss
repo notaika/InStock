@@ -15,26 +15,31 @@
     font-family: typography.$font-family, sans-serif;
 }
 h1 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
     font-weight: 600;
 }
 h2 {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 }
 h3 {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
 }
 h4 {
-    font-size: 11px;
-    line-height: 16px;
+    font-size: 0.6875rem;
+    line-height: 1rem;
 }
 p {
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
 }
 a{
     text-decoration: none;
+}
+button {
+    &:hover {
+        cursor: pointer;
+    }
 }

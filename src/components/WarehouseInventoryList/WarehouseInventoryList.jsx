@@ -19,12 +19,6 @@ export default function WarehouseInventoryList({
     statusClass = "warehouse-inventory__notinstock";
   }
 
-  console.log(  name,
-    category,
-    status,
-    quantity,
-    id)
-
   return (
     <>
       <div className="warehouse-inventory">

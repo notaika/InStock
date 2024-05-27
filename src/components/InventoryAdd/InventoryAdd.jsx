@@ -84,7 +84,6 @@ export default function InventoryAdd({ addItem }) {
           warehouse_id: Yup.number().required(errorMessage),
         })}
         onSubmit={async (values, { setSubmitting }) => {
-          console.log(values);
           try {
             if (addItem) {
               await axios.post(`${API_URL}/api/inventories`, values);

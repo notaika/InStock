@@ -22,7 +22,7 @@
 }
 
 .inventory-header{
-    border-bottom: 1px solid variables.$secondary-cloud;
+    border-bottom: 0.0625rem solid variables.$secondary-cloud;
 
     @include mixins.tablet{
         border: none;
@@ -49,8 +49,8 @@
         background-repeat: no-repeat;
         background-position: right 1rem top 50%;
         height: 2.25rem;
-        border: 1px solid variables.$secondary-cloud;
-        border-radius: 20px;
+        border: 0.0625rem solid variables.$secondary-cloud;
+        border-radius: 1.25rem;
         padding: .5rem 1rem;
         color: variables.$secondary-slate;
 
@@ -79,7 +79,6 @@
 
 .inventory-tablet{
     display: flex;
-    gap: 2rem;
     justify-content: space-between;
 
     @include mixins.tablet{
@@ -100,6 +99,10 @@
             line-height: 1rem;
             margin-bottom: .25rem;
             font-size: .75rem;
+
+            img {
+                height: 1.125rem;
+            }
         }
     }
 

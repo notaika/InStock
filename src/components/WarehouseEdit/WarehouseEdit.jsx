@@ -52,7 +52,6 @@ export default function WarehouseEdit() {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const response = await axios.put(`${API_URL}/api/warehouses/${id}`, values); 
-      console.log(response.data);
       alert("Updated warehouse details successfully!");
       navigate("/"); 
     } catch (error) {
@@ -64,7 +63,7 @@ export default function WarehouseEdit() {
   
 
   const handleCancel = () => {
-    navigate("/");
+    navigate(`/warehouse/${id}`);
   };
 
   return (
@@ -89,7 +88,7 @@ export default function WarehouseEdit() {
           <Form className="warehouse-edit"> 
             <div className="warehouse-edit__header">
               <div className="warehouse-edit__header-box">
-                <Link to="/">
+                <Link to={`/warehouse/${id}`}>
                   <img src={arrowIcon} alt="Back arrow" className="warehouse-edit__header-icon" />
                 </Link>
                 <h1 className="warehouse-edit__title">Edit Warehouse</h1>

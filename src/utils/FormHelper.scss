@@ -6,25 +6,25 @@
 
   &__copy {
     color: variables.$red;
-    padding-left: 4px;
-    font-size: 12px;
-    line-height: 18px;
+    padding-left: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
     font-weight: 400;
   }
 
   &__icon {
-    height: 16px;
+    height: 1rem;
   }
 }
 
 .radio-input {
   &__copy {
-    margin-left: 4px;
+    margin-left: 0.25rem;
   }
 }
 
 .text-input {
   &--error {
-    border: 1px solid variables.$red !important;
+    border: 0.0625rem solid variables.$red !important;
   }
 }
