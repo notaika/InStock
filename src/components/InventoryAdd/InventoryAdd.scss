@@ -10,6 +10,10 @@
   outline: none;
   box-shadow: 0px 2px 5px 0px #13182C1A;
   border-radius: 0.188rem;
+
+  @include mixins.tablet {
+    margin-top: -6em;
+  }
   @include mixins.desktop{
     margin:0 5rem;
     margin-top: -6em;
@@ -26,7 +30,7 @@
     margin-top: 1rem;
     padding-bottom: 1rem;
     padding: 1.5rem 1rem;
-    border-bottom: 1px solid variables.$secondary-cloud;
+    border-bottom: 0.0625rem solid variables.$secondary-cloud;
     @include mixins.tablet{
       padding: 1.5rem;
     }
@@ -71,12 +75,12 @@
   }
 
   &__left-container {
-    border-bottom: 1px solid variables.$secondary-cloud;
+    border-bottom: 0.0625rem solid variables.$secondary-cloud;
     padding-bottom: 1.5rem;
 
     @include mixins.tablet {
       border-bottom: none;
-      border-right: 1px solid variables.$secondary-cloud;
+      border-right: 0.0625rem solid variables.$secondary-cloud;
     }
   }
 
@@ -157,7 +161,7 @@
       border: 0;
       width: 40%;
       background-color: white;
-      border: 1px solid variables.$secondary-cloud;
+      border: 0.0625rem solid variables.$secondary-cloud;
 
       @include mixins.tablet {
         margin-right: 1rem;
@@ -181,6 +185,7 @@
 
       &:hover {
         cursor: pointer;
+        background-color: variables.$primary-black;
       }
     }
   }

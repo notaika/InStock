@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WarehousePage from './pages/WarehousePage/WarehousePage';
 import WarehouseAdd from './components/WarehouseAdd/WarehouseAdd';
-import WarehouseDelete from './components/WarehouseDelete/WarehouseDelete';
 import WarehouseEdit from './components/WarehouseEdit/WarehouseEdit';
 import WarehouseItem from './components/WarehouseItem/WarehouseItem';
 import InventoryPage from './pages/InventoryPage/InventoryPage';

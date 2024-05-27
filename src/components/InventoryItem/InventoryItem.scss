@@ -22,9 +22,12 @@
   @include tablet{
     margin: 0 2rem;
   }
+  @include desktop {
+    margin: 0;
+  }
 
   &__header {
-    border-bottom: 1px solid variables.$secondary-cloud;
+    border-bottom: 0.0625rem solid variables.$secondary-cloud;
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -41,11 +44,6 @@
     align-items: center;
   }
 
-  &__arrowback {
-    border: transparent;
-    background-color: variables.$bg-lightgrey;
-  }
-
   &__name {
     color: variables.$primary-black;
     font-family: $font-family;
@@ -59,6 +57,11 @@
     width: 2.5em;
     height: 2.5em;
     border: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: variables.$primary-black;
+    }
 
     @include tablet {
       width: auto;
@@ -144,7 +147,7 @@
       left: 5em;
     }
     &__itemdiv--line {
-      border-right: 1px solid #bdc5d5;
+      border-right: 0.0625rem solid #bdc5d5;
     }
     &__itemstyle {
       font-family: $font-family;

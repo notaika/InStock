@@ -23,7 +23,6 @@ const WarehouseDetails = ({ id }) => {
         `${API_URL}/api/warehouses/${id}`
       );
       setWarehouseDetails(warehouseRequest.data);
-      console.log(warehouseRequest.data);
     } catch (error) {
       console.error("Error while fetching warehouse data", error);
     }

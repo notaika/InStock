@@ -1,0 +1,105 @@
+@use '../../styles/partials/variables';
+@use '../../styles/partials/mixins';
+
+body {
+    color: variables.$primary-black;
+}
+
+.modal {
+    position: fixed;
+    z-index: 1300;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__delete {
+        &-cancel, &-confirm {
+            width: 45%;
+            height: 2.375rem;
+            border: 0.0625rem solid variables.$secondary-cloud;
+            border-radius: 1.25rem;
+            font-weight: 600;
+
+            @include mixins.tablet {
+                width: 13%;
+                margin-left: 1.5rem;
+            }
+        }
+        &-cancel {
+            background-color: variables.$primary-white;
+            color: variables.$secondary-slate;
+        }
+        &-confirm {
+            background-color: variables.$red;
+            color: variables.$primary-white;
+        }
+    }
+    &__content {
+        padding: 3.75rem 1rem 2rem 1rem;
+        width: 100%;
+        min-height: 100vh;
+        text-align: start;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.25rem;
+        justify-content: space-between;
+        background-color: white;
+        position: relative;
+
+        @include mixins.tablet {
+            min-height: 20%;
+            width: 90vw;
+            padding: 3rem 4.5rem;
+            bottom: 12.5rem;
+        }
+
+        @include mixins.desktop {
+            min-height: 25%;
+            width: 55vw;
+            bottom: 7.5rem;
+        }
+
+        &-functions {
+            display: flex;
+            justify-content: space-between;
+
+            @include mixins.tablet {
+                justify-content: flex-end;
+            }
+        }
+    }
+    &__exit {
+        position: absolute;
+        background-color: white;
+        border: none;
+        top: 0.9375rem;
+        right: 0.9375rem;
+    }
+    &-title {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        font-weight: 600;
+        padding-bottom: 1rem;
+
+        @include mixins.tablet {
+            font-size: 2rem;
+            line-height: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+    }
+    &-description {
+        font-size: 0.9375rem;
+        line-height: 1.625rem;
+        font-weight: 400;
+        
+        @include mixins.tablet {
+            font-size: 1rem;
+            line-height: 1.75rem;
+            margin: 0;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+            width: 85%;
+        }
+    }
+}

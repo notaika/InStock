@@ -127,7 +127,7 @@ body {
         }
         &-actions {
             flex: 0.5;
-            margin: 16px 36px 0 0;
+            margin: 1rem 2.25rem 0 0;
             @include mixins.desktop {
              flex: 0.2;
             }

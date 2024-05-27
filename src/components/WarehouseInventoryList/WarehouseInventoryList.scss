@@ -25,7 +25,7 @@ a {
   display: block;
 }
 .warehouse-inventory {
-  border-bottom: 1px solid variables.$secondary-cloud;
+  border-bottom: 0.0625rem solid variables.$secondary-cloud;
 
   &__container {
     display: flex;

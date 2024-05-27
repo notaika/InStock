@@ -1,6 +1,14 @@
 @use "../../styles/partials/variables";
 @use "../../styles/partials/mixins";
 
+body {
+  font-size: 0.8125rem;
+
+  @include mixins.tablet {
+    font-size: 0.875rem;
+  }
+}
+
 .warehouse-details {
   position: relative;
   top:-4rem;
@@ -38,15 +46,15 @@
     background-color: variables.$primary-indigo;
     border-radius: 50%;
     border: 0;
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
 
     @include mixins.tablet {
-      border-radius: 20px;
-      padding-right: 16px;
-      padding-left: 16px;
-      height: 38px;
-      width: 80px;
+      border-radius: 1.25rem;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      height: 2.375rem;
+      width: 5rem;
     }
 
     &:hover {
@@ -56,26 +64,27 @@
 
   &__button-text {
     display: none;
-    padding-left: 4px;
+    padding-left: 0.25rem;
     
 
     @include mixins.tablet {
       display: flex;
       color: variables.$primary-white;
-      font-size: 14px;
-      line-height: 22px
+      font-size: 0.875rem;
+      line-height: 1.375rem
     }
   }
 
   &__divider {
-    height: 1px;
+    height: 0.0625rem;
     background-color: variables.$secondary-cloud;
   }
 
   &__address {
-    padding:1rem;
+    padding: 1rem 1.5rem;
     display: flex;
     flex-direction: column;
+    border-bottom: 0.0625rem solid variables.$secondary-cloud;
 
     @include mixins.tablet {
       flex-direction: row;
@@ -113,28 +122,32 @@
     @include mixins.tablet {
       padding-top: 0;
       align-items: space-between;
-      border-left: 1px solid mixins.$secondary-cloud;
+      border-left: 0.0625rem solid mixins.$secondary-cloud;
       padding-left: 1rem;
     }
   }
 
   &__contact {
     list-style-type: none;
+    font-size: 0.8125rem;
+    width: 50%;
 
     @include mixins.tablet {
       padding-left: 2rem;
+      width: 10.625rem;
     }
   }
 
   &__contact-header,
   &__address-header {
-    font-size: 0.6888rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
     height: 1rem;
     text-transform: uppercase;
     color: variables.$secondary-slate;
 
     @include mixins.tablet {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
     }
   }
 }
