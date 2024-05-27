@@ -10,22 +10,10 @@ import Header from "../Header/Header";
 import { Link, useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_LOCALHOST;
+const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 export default function WarehouseAdd() {
   const navigate = useNavigate();
-
-  const handleSubmit = async (values, { setSubmitting }) => {
-    try {
-      const response = await axios.post(`${API_URL}/api/warehouses`, values);
-      console.log(response.data);
-      alert("Added new warehouse successfully!");
-      navigate("/");
-    } catch (error) {
-      console.error("Error adding new warehouse:", error);
-      alert("Failed to add the new warehouse, please try again later.");
-    }
-    setSubmitting(false);
-  };
 
   const handleCancel = () => {
     navigate("/");
@@ -52,12 +40,24 @@ export default function WarehouseAdd() {
           country: Yup.string().required("This field is required"),
           contact_name: Yup.string().required("This field is required"),
           contact_position: Yup.string().required("This field is required"),
-          contact_phone: Yup.string().required("This field is required"),
+          contact_phone: Yup.string().matches(phoneRegExp, "Phone number is not valid.").required("This field is required"),
           contact_email: Yup.string()
             .required("This field is required")
             .email("Invalid email address"),
         })}
-        onSubmit={handleSubmit}
+        onSubmit={async (values, { setSubmitting }) => {
+          try {
+            const request = await axios.post(
+              `${API_URL}/api/warehouses`,
+              values
+            );
+            console.log(request);
+          } catch (error) {
+            console.error("Error creating a warehouse", error);
+          } finally {
+            setSubmitting(false);
+          }
+        }}
       >
         {({ values, handleChange, handleBlur }) => (
           <Form className="warehouse-add">
@@ -180,7 +180,10 @@ export default function WarehouseAdd() {
               >
                 Cancel
               </button>
-              <button type="submit" className="warehouse-add__button-item--right">
+              <button
+                type="submit"
+                className="warehouse-add__button-item--right"
+              >
                 + Add Warehouse
               </button>
             </div>
