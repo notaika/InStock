@@ -1,96 +1,74 @@
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/typography";
 @use "../../styles/partials/variables";
 
-*{
+* {
     box-sizing: border-box;
     margin:0;
     padding:0;
-    // overflow: hidden;
 }
-
 .header {
-    background-color: #232940;
-    width:100%;
+    background-color: variables.$bg-graphite;;
     height:13rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem;
 
-&__logo {
-    margin-top:1.5em;
-    margin-bottom: 0.63em;  
-} 
-
-&__logo-size {
-    width: 7.50em;
-}
-
-&__list {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
-    text-decoration:none;
-    text-decoration: none;
-}
-
-&__menu{
-    color:white;
-    font-size: 0.9em;
-    margin: 1em 0.5em 0 0.94em;
-    padding: 0.5em 2.5em;
-    font-family:$font-family;
-    font-weight: 400;
-}
-    &__menu.active {
-        background-color: #13182C;
-        border-radius: 312em;
-    }
-    &__menu:not(.active){
-        color:variables.$secondary-cloud;
-    }
-    &__menu:not(.active):hover{
-        text-decoration: underline;
-    }
-  
-  &__decor{
-    text-decoration: none;
-    color: #ffffff;
-}
-}
-
-
-
-@include tablet{
-    .header {
-        height:11.63em;
-        display: flex;
+    @include mixins.tablet {
         flex-direction: row;
-        align-items: center;
         justify-content: space-between;
+        align-items: flex-start;
+        height: 160px;
+        max-width: 1020px;;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
 
-        &__logo {
-            margin-bottom:7em;
-            margin-left: 2em;
-        } 
+    &__wrapper {
+        background-color: variables.$bg-graphite;
+    }
+    &__logo {
+        &-size {
+            height: 28px;
+            margin-bottom: 1rem;
 
-        &__menu{
-            margin-bottom:6.9em;
-            margin-left: 2.5em;
-            margin-right:2em;
+            @include mixins.tablet {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        text-decoration: none;
+        list-style-type: none;
+
+        @include mixins.tablet {
+            width: 30%;
+        }
+    }
+    &__menu {
+        text-align: center;
+        width: 50%;
+
+        @include mixins.tablet {
+            margin-left: 0.5rem;
+        }
+    }
+    &__decor {
+        color: white;
+        padding: 0.5rem;
+        border-radius: 20px;
+
+        &:hover {
+            background-color: variables.$primary-black;
         }
     }
 }
 
-@include desktop{
-    .header {
-        
-        &__logo {
-            margin-left: 5.5em;
-        }  
-
-        &__list{
-            margin-right:5.5em;
-        }
-    }
+.active {
+    background-color: variables.$primary-black;
+    border-radius: 20px;
 }
