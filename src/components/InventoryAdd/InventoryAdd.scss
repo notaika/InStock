@@ -10,7 +10,11 @@
   outline: none;
   box-shadow: 0px 2px 5px 0px #13182C1A;
   border-radius: 3px;
+  @include mixins.desktop{
+    margin:0 5rem;
+    margin-top: -6em;
 
+  }
   &__title-wrapper {
     display: flex;
     align-items: flex-start;
@@ -20,6 +24,9 @@
     border-bottom: 1px solid variables.$secondary-cloud;
     @include mixins.tablet{
       padding: 24px;
+    }
+    @include mixins.desktop{
+      padding:35px;
     }
   }
 
@@ -52,7 +59,9 @@
       width: 50%;
       padding:0 24px;
       margin-top:24px;
-      
+    }
+    @include mixins.desktop{
+      padding:0rem 35px;
     }
   }
 
@@ -140,6 +149,10 @@
     @include mixins.tablet {
       justify-content: flex-end;
       padding-right: 1rem;
+    }
+
+    @include mixins.desktop{
+      padding: 1rem 35px;
     }
   }
 
