@@ -23,6 +23,7 @@ const WarehouseDetails = ({ id }) => {
         `${API_URL}/api/warehouses/${id}`
       );
       setWarehouseDetails(warehouseRequest.data);
+      console.log(warehouseRequest.data);
     } catch (error) {
       console.error("Error while fetching warehouse data", error);
     }
@@ -63,16 +64,15 @@ const WarehouseDetails = ({ id }) => {
               </h1>
             </div>
             <Link to={`/warehouse/edit/${warehouseDetails.id}`}>
-                        <button className="warehouse-details__edit-button">
-              <img
-                src={editIcon}
-                alt="edit-button icon"
-                className="warehouse-details__button-icon"
-              />
-              <p className="warehouse-details__button-text">Edit</p>
-            </button>
+              <button className="warehouse-details__edit-button">
+                <img
+                  src={editIcon}
+                  alt="edit-button icon"
+                  className="warehouse-details__button-icon"
+                />
+                <p className="warehouse-details__button-text">Edit</p>
+              </button>
             </Link>
-
           </div>
           <div className="warehouse-details__divider"></div>
           <div className="warehouse-details__address">

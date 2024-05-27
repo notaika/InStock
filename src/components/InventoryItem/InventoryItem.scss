@@ -36,6 +36,10 @@
     @include tablet {
       padding: 2rem 2rem 1rem 2rem;
     }
+
+    @include tablet {
+      padding: 2rem 2.5rem 1rem 2.5rem;
+    }
   }
 
   &__left {
@@ -157,7 +161,7 @@
     &__name {
       font-family: $font-family;
       font-weight: 600;
-      font-size: 2.3em;
+      font-size: 2rem;
     }
     &__status &__items {
       margin-right: 5em;

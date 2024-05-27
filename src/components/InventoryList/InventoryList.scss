@@ -28,18 +28,26 @@ a {
 .inventory-item {
   border-bottom: 0.0625rem solid variables.$secondary-cloud;
 
+  @include mixins.desktop {
+    &:hover {
+      background-color: #2e65e510;
+      cursor: pointer;
+    }
+  }
+
   &__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    margin: 1rem 1.5rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
 
     @include mixins.tablet {
       flex-wrap: nowrap;
       align-items: center;
-      margin: 1.125rem 2rem;
+      padding: 1.125rem 2rem;
       justify-content: space-between;
     }
+
   }
 
   &__title {
@@ -62,6 +70,12 @@ a {
     font-weight: 600;
     align-items: center;
     color: variables.$primary-indigo;
+
+    @include mixins.desktop{
+      &:hover {
+        text-decoration: underline;
+    }
+    }
   }
 
   &__detail {
