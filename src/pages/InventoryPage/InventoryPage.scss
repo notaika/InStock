@@ -1,134 +1,137 @@
-@use '../../styles/partials/mixins';
-@use '../../styles/partials/variables';
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/variables";
 
-
-.main-container{
-    background-color: variables.$bg-lightgrey;
-    padding: 0;
-    margin: 0;
+.main-container {
+  background-color: variables.$bg-lightgrey;
+  padding: 0;
+  margin: 0;
 }
 
-.inventories{
-    position: relative;
-    top:-4rem;
-    margin: 0 2rem;
+.inventories {
+  position: relative;
+  top: -4rem;
+  margin: 0 2rem;
 
-    &__container{
-        background-color: variables.$primary-white;
-        max-width: 63.75rem;
-        margin: 0 auto;
-        @include mixins.box-shadow;
-    }
+  &__container {
+    background-color: variables.$primary-white;
+    max-width: 63.75rem;
+    margin: 0 auto;
+    @include mixins.box-shadow;
+  }
 }
 
-.inventory-header{
-    border-bottom: 0.0625rem solid variables.$secondary-cloud;
+.inventory-header {
+  border-bottom: 0.0625rem solid variables.$secondary-cloud;
 
-    @include mixins.tablet{
-        border: none;
-    }
+  @include mixins.tablet {
+    border: none;
+  }
 
-    &__container{
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap:1rem;
-
-    @include mixins.tablet{
-        flex-direction: row;
-        padding: 2rem 2rem 1.375rem 2rem;
-    }
-    }
-
-    &__title{
-        width: 60%;
-    }
-
-    &__search{
-        background-image: url("../../assets/icons/search-24px.svg");
-        background-repeat: no-repeat;
-        background-position: right 1rem top 50%;
-        height: 2.25rem;
-        border: 0.0625rem solid variables.$secondary-cloud;
-        border-radius: 1.25rem;
-        padding: .5rem 1rem;
-        color: variables.$secondary-slate;
-
-        @include mixins.tablet{
-            width: 30%;
-        }
-    }
-
-    &__button{
-        background-color: variables.$primary-indigo;
-        border-radius: 12.5rem;
-        border: 0;
-        color:variables.$primary-white;
-        padding: .5rem 0;
-        cursor: pointer;
-        width: 100%;
-
-        &:hover{
-            background-color: variables.$primary-black;
-        }
-        @include mixins.tablet{
-            width: 8rem;
-        }
-    }
-}
-
-.inventory-tablet{
+  &__container {
+    padding: 1.5rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
 
-    @include mixins.tablet{
-        background-color: variables.$bg-lightgrey;
-        padding: .6875rem 2rem;
-    }
-
-    &__heading{
-        display: none;
-
-        @include mixins.tablet{
-            display: flex;
-            align-items: center;
-            gap:.25rem;
-            color: variables.$secondary-slate;
-            text-transform: uppercase;
-            font-weight: 600;
-            line-height: 1rem;
-            margin-bottom: .25rem;
-            font-size: .75rem;
-
-            img {
-                height: 1.125rem;
-            }
-        }
+    @include mixins.tablet {
+      flex-direction: row;
+      padding: 2rem 2rem 1.375rem 2rem;
     }
 
-    &__inventory{
-        flex-basis: 20%;
-    }
-    
-    &__category{
-        flex-basis: 20%;
-    }
-    
-    &__status{
-        flex-basis: 20%;
-    }
-    
-    &__quantity{
-        flex-basis: 10%;
-    }
-    
-    &__warehouse{
-        flex-basis: 20%;
-    }
+    @include mixins.desktop {
+        padding: 2rem 2.5rem 1.375rem 2.5rem;
+      }
+  }
 
-    &__actions{
-        text-align: right;
-        max-width: 3.375rem;
-        margin-left:1rem ;
+  &__title {
+    width: 60%;
+  }
+
+  &__search {
+    background-image: url("../../assets/icons/search-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right 1rem top 50%;
+    height: 2.25rem;
+    border: 0.0625rem solid variables.$secondary-cloud;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+    color: variables.$secondary-slate;
+
+    @include mixins.tablet {
+      width: 30%;
     }
-} 
+  }
+
+  &__button {
+    background-color: variables.$primary-indigo;
+    border-radius: 12.5rem;
+    border: 0;
+    color: variables.$primary-white;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+      background-color: variables.$primary-black;
+    }
+    @include mixins.tablet {
+      width: 8rem;
+    }
+  }
+}
+
+.inventory-tablet {
+  display: flex;
+  justify-content: space-between;
+
+  @include mixins.tablet {
+    background-color: variables.$bg-lightgrey;
+    padding: 0.6875rem 2rem;
+  }
+
+  &__heading {
+    display: none;
+
+    @include mixins.tablet {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      color: variables.$secondary-slate;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.75rem;
+
+      img {
+        height: 1.125rem;
+      }
+    }
+  }
+
+  &__inventory {
+    flex-basis: 20%;
+  }
+
+  &__category {
+    flex-basis: 20%;
+  }
+
+  &__status {
+    flex-basis: 20%;
+  }
+
+  &__quantity {
+    flex-basis: 10%;
+  }
+
+  &__warehouse {
+    flex-basis: 20%;
+  }
+
+  &__actions {
+    text-align: right;
+    max-width: 3.375rem;
+    margin-left: 1rem;
+  }
+}

@@ -30,13 +30,20 @@ a {
   &__container {
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem 1.5rem 1.5rem 1.5rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
 
     @include mixins.tablet {
       flex-wrap: nowrap;
       align-items: center;
-      margin: 1.125rem 2rem;
+      padding: 1.125rem 2rem;
       justify-content: space-between;
+    }
+
+    @include mixins.desktop {
+      &:hover {
+        background-color: #2e65e510;
+        cursor: pointer;
+      }
     }
   }
 
@@ -60,6 +67,10 @@ a {
     font-weight: 600;
     align-items: center;
     color: variables.$primary-indigo;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   &__detail {
@@ -69,18 +80,18 @@ a {
   &__name {
     @include card-half-width();
 
-    @include mixins.tablet{
-        order: 1;
-        width: 22%;
+    @include mixins.tablet {
+      order: 1;
+      width: 22%;
     }
   }
 
   &__status {
     @include card-half-width();
 
-    @include mixins.tablet{
-        order: 3;
-        width: 27%;
+    @include mixins.tablet {
+      order: 3;
+      width: 27%;
     }
   }
 
@@ -108,9 +119,9 @@ a {
   &__category {
     @include card-half-width();
 
-    @include mixins.tablet{
-        order: 2;
-        width: 20%;
+    @include mixins.tablet {
+      order: 2;
+      width: 20%;
     }
   }
 
@@ -123,7 +134,7 @@ a {
     @include mixins.tablet {
       width: auto;
       gap: 1rem;
-    //   align-items: flex-end;
+      //   align-items: flex-end;
       max-width: 4rem;
     }
   }
