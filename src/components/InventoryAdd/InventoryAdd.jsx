@@ -61,7 +61,7 @@ export default function InventoryAdd({ addItem }) {
   ];
 
   return (
-    <>
+    <div className="inventory-add__wrapper">
       <Header />
       <Formik
         initialValues={{
@@ -219,6 +219,6 @@ export default function InventoryAdd({ addItem }) {
         )}
       </Formik>
       <Footer />
-    </>
+    </div>
   );
 }

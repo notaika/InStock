@@ -8,7 +8,6 @@ import InventoryPage from './pages/InventoryPage/InventoryPage';
 import InventoryAdd from './components/InventoryAdd/InventoryAdd';
 import DeleteInventoryModal from './components/DeleteInventoryModal/DeleteInventoryModal'
 import InventoryItem from './components/InventoryItem/InventoryItem';
-import InventoryEdit from './components/InventoryEdit/InventoryEdit';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import DeleteModal from './components/DeleteModal/DeleteModal';
 import './index.scss'
